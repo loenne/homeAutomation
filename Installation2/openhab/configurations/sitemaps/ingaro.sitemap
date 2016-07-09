@@ -1,0 +1,10 @@
+sitemap ingaro label="Ingarö"
+{
+        Frame label="Ingarö" {
+                Group item=gHuset        label="Huset"          icon="groundfloor"
+                Group item=gTradgarden   label="Trädgården"     icon="groundfloor"
+                Group item=gSovhuset     label="Sovhuset"       icon="groundfloor"
+                Group item=gChanna       label="Channas rum"    icon="groundfloor"
+                Group item=gNoak         label="Noaks rum"      icon="groundfloor"
+        }
+}
