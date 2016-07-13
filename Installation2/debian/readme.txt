@@ -1,3 +1,12 @@
-Readme for Installation2/debian
+Readme for Installation1/debian
 ----------------------
+
+
+The rasperry pi is running debian linux
+
+Connect using ssh
+-----------------
+> ssh pi@192.168.0.118 (pwd:topp-n+N+2020)
+
+
 
