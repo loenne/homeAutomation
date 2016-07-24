@@ -11,7 +11,6 @@ rule "Send On Mail"
 when 
     Item Light_gTradgarden_WaterPump received command ON
 then 
-//    send("bjorn.lonne@gmail.com","Water Pump is turned ON")
     sendMail("bjorn.lonne@gmail.com","Water Pump", "Water Pump is turned ON")
 end
 
@@ -20,6 +19,14 @@ rule "Send Off Mail"
 when 
     Item Light_gTradgarden_WaterPump received command OFF
 then
-//    send("bjorn.lonne@gmail.com","Water Pump is turned OFF")
     sendMail("bjorn.lonne@gmail.com","Water Pump", "Water Pump is turned OFF") 
 end
+
+// 
+rule "Send mail when motion detected"
+when
+    Item Light_gHouse_MotionDetection1 received command ON
+then
+    sendMail("bjorn.lonne@gmail.com","Motion detected at parkinglot", "Motion detected at sensor 1")
+end
+
