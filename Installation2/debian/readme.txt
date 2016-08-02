@@ -19,6 +19,14 @@ TCPKeepAlive no
 ServerAliveInterval 20
 ServerAliveCountMax 10
 
+Install tightvncserver
+-----------------------
+>sudo apt-get install tightvncserver
+
+start the server
+> tightvncserver  (password : fleksnes + 020)
+
+
 
 
 
