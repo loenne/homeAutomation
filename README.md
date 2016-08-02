@@ -14,11 +14,13 @@ File structure:
 
 GeneralInfo
     documents
+
 Installation1
     pagekite
     openhab
     telldus
     debian
+
 Installation2
     pagekite
     openhab
