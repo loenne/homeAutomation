@@ -23,3 +23,29 @@ then
 //    send("bjorn.lonne@gmail.com","Water Pump is turned OFF")
     sendMail("bjorn.lonne@gmail.com","Water Pump", "Water Pump is turned OFF") 
 end
+
+
+rule "House temperature trigger"
+when
+    Item gHuset_Temperature changed
+then
+    logInfo("House Temperature changed", "detached thermostat temperature changed.  Temperature: "+gHuset_Temperature.state)
+
+// Step two is to add an action that powers on a heater
+//    if (gHuset_Temperature.state < 10 && ChargerOutlet.state == OFF) {
+    if (gHuset_Temperature.state < 10 && gHuset_Heater1.state == OFF) {
+        logInfo("detached", "Detected house temp below 10 degrees !!. Should turn ON heater")
+        // sendCommand(ChargerOutlet, ON)
+        sendMail("bjorn.lonne@gmail.com","House Temperature warning", "Temperature in house is below 10 degrees: "+gHuset_Temperature.state)
+        //sendXMPP("myemail@gmail.com", "detached garage outlet changed to "+ChargerOutlet.state +"  temperature: "+gHuset_Temperature.state)
+    }
+    else {
+//    if (gHuset_Temperature.state >= 15 && ChargerOutlet.state == ON) {
+        if (gHuset_Temperature.state >= 15 && gHuset_Heater1 == ON) {
+            logInfo("detached", "Detected house temp higher than 15 !!. Should turn OFF heater")
+            //sendCommand(ChargerOutlet, OFF)
+            //sendXMPP("myemail@gmail.com", "detached garage outlet switched off.  Temperature: "+gHuset_Temperature.state)
+            sendMail("bjorn.lonne@gmail.com","House Temperature warning", "Temperature in house is above 15 degrees: "+gHuset_Temperature.state)
+        }
+    }
+end

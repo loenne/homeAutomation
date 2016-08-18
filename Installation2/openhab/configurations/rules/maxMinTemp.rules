@@ -1,0 +1,70 @@
+import org.openhab.core.library.types.*
+import org.openhab.model.script.actions.*
+import java.lang.Math
+import java.util.Calendar
+import java.util.Date
+import java.util.TimeZone
+import java.text.SimpleDateFormat
+
+rule "Update House Temperature Min- and Max values"
+when
+    Item  gHuset_Temperature received update
+then
+    var Number Min
+    var Number Max
+    var String tmp
+    var SimpleDateFormat df = new SimpleDateFormat( "HH:mm" ) 
+
+    if (gHuset_Temperature.state instanceof DecimalType) {
+        Min = (gHuset_Temperature.minimumSince(now.toDateMidnight, "rrd4j").state as DecimalType)
+        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " °C (" + df.format(gHuset_Temperature.minimumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gHuset_Temperature_Min_Formatted, tmp)
+
+        Max = gHuset_Temperature.maximumSince(now.toDateMidnight, "rrd4j").state as DecimalType
+        df = new SimpleDateFormat( "HH:mm" ) 
+        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " °C (" + df.format(gHuset_Temperature.maximumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gHuset_Temperature_Max_Formatted, tmp)
+    }
+end
+
+rule "Update Basement Temperature Min- and Max values"
+when
+    Item  gBasement_Temperature received update
+then
+    var Number Min
+    var Number Max
+    var String tmp
+    var SimpleDateFormat df = new SimpleDateFormat( "HH:mm" )
+
+    if (gBasement_Temperature.state instanceof DecimalType) {
+        Min = (gBasement_Temperature.minimumSince(now.toDateMidnight, "rrd4j").state as DecimalType)
+        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " °C (" + df.format(gBasement_Temperature.minimumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gBasement_Temperature_Min_Formatted, tmp)
+
+        Max = gBasement_Temperature.maximumSince(now.toDateMidnight, "rrd4j").state as DecimalType
+        df = new SimpleDateFormat( "HH:mm" )
+        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " °C (" + df.format(gBasement_Temperature.maximumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gBasement_Temperature_Max_Formatted, tmp)
+    }
+end
+
+rule "Update Sovhuset Temperature Min- and Max values"
+when
+    Item  gSovhuset_Temperature received update
+then
+    var Number Min
+    var Number Max
+    var String tmp
+    var SimpleDateFormat df = new SimpleDateFormat( "HH:mm" )
+
+    if (gSovhuset_Temperature.state instanceof DecimalType) {
+        Min = (gSovhuset_Temperature.minimumSince(now.toDateMidnight, "rrd4j").state as DecimalType)
+        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " °C (" + df.format(gSovhuset_Temperature.minimumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gSovhuset_Temperature_Min_Formatted, tmp)
+
+        Max = gSovhuset_Temperature.maximumSince(now.toDateMidnight, "rrd4j").state as DecimalType
+        df = new SimpleDateFormat( "HH:mm" )
+        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " °C (" + df.format(gSovhuset_Temperature.maximumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gSovhuset_Temperature_Max_Formatted, tmp)
+    }
+end

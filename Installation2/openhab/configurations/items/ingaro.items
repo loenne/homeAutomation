@@ -12,6 +12,8 @@ Group gMyOpenHAB
 Switch Light_gSovhuset_SleepHouseFloorLamp   "Golvlampa"                            (gSovhuset, gMyOpenHAB)         {tellstick="SleepHouseFloorLamp:Command"}
 Number gSovHuset_Humidity                    "Luftfuktighet [%.1f ]"  <climate>     (gSovhuset, gMyOpenHAB)         {tellstick="151:Humidity"}
 Number gSovhuset_Temperature                 "TempSovhus [%.1f °C]"   <temperature> (gSovhuset, gMyOpenHAB, gTemps) {tellstick="151:Temperature"}
+String gSovhuset_Temperature_Min_Formatted   "Min. Temp [%s]" <temperature> (gSovhuset)
+String gSovhuset_Temperature_Max_Formatted   "Max. Temp [%s]" <temperature> (gSovhuset)
  
 Switch Light_gTradgarden_WaterPump           "Pump bevattning"                      (gTradgarden, gMyOpenHAB)       {tellstick="WaterPump:Command"}
 Switch Light_gTradgarden_DamPump             "Pump damm"                            (gTradgarden, gMyOpenHAB)       {tellstick="DamPump:Command"}
@@ -20,7 +22,12 @@ Switch gGuestHouse_MotionDetect1             "Motion detect"                    
 
 Number gBasement_Humidity                    "Luftfuktighet [%.1f ]"  <climate>     (gBasement, gMyOpenHAB)         {tellstick="167:Humidity"}
 Number gBasement_Temperature                 "TempKällare [%.1f °C]"   <temperature> (gBasement, gMyOpenHAB, gTemps) {tellstick="167:Temperature"}
+String gBasement_Temperature_Min_Formatted   "Min. Temp [%s]" <temperature> (gBasement)
+String gBasement_Temperature_Max_Formatted   "Max. Temp [%s]" <temperature> (gBasement)
 
 Switch Light_gHuset_HouseFloorLamp           "Golvlampa"              <moon>        (gHuset, gMyOpenHAB)            {tellstick="HouseFloorLamp:Command"}
+Switch gHuset_Heater1                        "Element_1"              <climate>     (gHuset, gMyOpenHAB)            {tellstick="HouseHeater1:Command"}
 Number gHuset_Humidity                       "Luftfuktighet [%.1f ]"  <climate>     (gHuset, gMyOpenHAB)            {tellstick="135:Humidity"}
-Number gHuset_Temperature                    "TempVardagsrum [%.1f °C]"   <temperature> (gHuset, gMyOpenHAB, gTemps)    {tellstick="135:Temperature"}﻿
+Number gHuset_Temperature                    "TempVardagsrum [%.1f °C]" <temperature> (gHuset, gMyOpenHAB, gTemps)  {tellstick="135:Temperature"}
+String gHuset_Temperature_Min_Formatted      "Min. Temp [%s]" <temperature> (gHuset)
+String gHuset_Temperature_Max_Formatted      "Max. Temp [%s]" <temperature> (gHuset)
