@@ -1,0 +1,15 @@
+
+Addons used in Installation2
+----------------------------
+
+org.openhab.action.mail-1.8.2.jar
+org.openhab.binding.http-1.8.2.jar
+org.openhab.binding.ntp-1.8.2.jar
+org.openhab.binding.rfxcom-1.8.2.jar
+org.openhab.binding.tellstick-1.8.2.jar
+org.openhab.io.multimedia.tts.googletts-1.8.2.jar
+org.openhab.persistence.exec-1.8.2.jar
+org.openhab.persistence.logging-1.8.2.jar
+org.openhab.persistence.rrd4j-1.8.2.jar
+question
+

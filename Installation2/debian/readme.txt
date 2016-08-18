@@ -1,5 +1,5 @@
-Readme for Installation1/debian
-----------------------
+Readme for Installation2/debian
+-------------------------------
 
 
 The rasperry pi is running debian linux
@@ -26,7 +26,16 @@ Install tightvncserver
 start the server
 > tightvncserver  (password : fleksnes + 020)
 
+todo: Make it aoutstart after boot !!
 
 
-
+Upgrade debian software
+--------------------------------
+> sudo apt-get update
+> sudo apt-get dist-upgrade
+> sudo apt-key list | grep expired
+> sudo apt-key adv --recv-keys --keyserver keys.gnupg.net C7B2CAC3
+> sudo apt-get update
+> sudo apt-get upgrade
+> sudo apt-get autoremove
 
