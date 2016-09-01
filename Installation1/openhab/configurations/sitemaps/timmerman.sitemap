@@ -1,0 +1,8 @@
+sitemap timmerman label="Timmermansgatan"
+{
+	Frame label="Rooms" {
+		Group item=gLivingroom     label="Vardagsrum" icon="groundfloor"
+		Group item=gBedroom1       label="Sovrum"     icon="groundfloor"
+		Group item=gHall           label="Hall"       icon="groundfloor"	
+	}
+}

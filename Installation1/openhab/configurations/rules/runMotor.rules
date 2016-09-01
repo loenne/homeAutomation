@@ -1,0 +1,21 @@
+// import the decimal type as we refer to it in a rule
+import org.openhab.core.library.types.DecimalType
+
+var Number counter
+
+// setting the counter to some initial value
+// we could have done this in the variable declaration already
+rule StartMotor
+when 
+    Item Lamp1 received command ON
+then
+    callScript(StartMotor)
+end
+
+// 
+rule StopMotor
+when 
+    Itm Lamp1 received command OFF
+then
+    callScript(StopMotor)
+end

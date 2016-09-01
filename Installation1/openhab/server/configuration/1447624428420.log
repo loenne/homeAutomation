@@ -1,0 +1,568 @@
+!SESSION 2015-11-15 22:53:47.182 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=arm, WS=gtk, NL=en_GB
+Framework arguments:  -o
+Command-line arguments:  -o -console
+
+!ENTRY org.eclipse.osgi 4 0 2015-11-15 22:53:49.201
+!MESSAGE The -clean (osgi.clean) option was not successful. Unable to clean the storage area: /opt/openhab/server/configuration/org.eclipse.osgi
+
+!ENTRY org.eclipse.equinox.ds 4 0 2015-11-15 22:54:04.989
+!MESSAGE Could not bind a reference of component org.openhab.core.itemregistry. The reference is: Reference[name = ItemProvider, interface = org.openhab.core.items.ItemProvider, policy = dynamic, cardinality = 0..n, target = null, bind = addItemProvider, unbind = removeItemProvider]
+
+!ENTRY org.eclipse.equinox.ds 4 0 2015-11-15 22:54:04.992
+!MESSAGE Could not bind a reference of component org.openhab.core.itemregistry. The reference is: Reference[name = ItemProvider, interface = org.openhab.core.items.ItemProvider, policy = dynamic, cardinality = 0..n, target = null, bind = addItemProvider, unbind = removeItemProvider]
+
+!ENTRY org.eclipse.equinox.ds 4 0 2015-11-15 22:54:05.196
+!MESSAGE Could not bind a reference of component org.openhab.core.persistence.extensions. The reference is: Reference[name = PersistenceService, interface = org.openhab.core.persistence.PersistenceService, policy = dynamic, cardinality = 0..n, target = null, bind = addPersistenceService, unbind = removePersistenceService]
+
+!ENTRY org.eclipse.equinox.ds 4 0 2015-11-15 22:54:05.198
+!MESSAGE Could not bind a reference of component org.openhab.core.persistence.extensions. The reference is: Reference[name = PersistenceService, interface = org.openhab.core.persistence.PersistenceService, policy = dynamic, cardinality = 0..n, target = null, bind = addPersistenceService, unbind = removePersistenceService]
+
+!ENTRY org.eclipse.osgi 4 0 2015-11-15 22:54:06.819
+!MESSAGE An error occurred while automatically activating bundle org.eclipse.core.resources (50).
+!STACK 0
+org.osgi.framework.BundleException: Exception in org.eclipse.core.resources.ResourcesPlugin.start() of bundle org.eclipse.core.resources.
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:734)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:683)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:300)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:263)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:469)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.SingleSourcePackage.loadClass(SingleSourcePackage.java:35)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:461)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:421)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:412)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at org.eclipse.emf.ecore.plugin.EcorePlugin.getWorkspaceRoot(EcorePlugin.java:617)
+	at org.eclipse.emf.ecore.resource.impl.ExtensibleURIConverterImpl.<clinit>(ExtensibleURIConverterImpl.java:387)
+	at org.eclipse.xtext.resource.XtextResourceSet.getURIConverter(XtextResourceSet.java:170)
+	at org.eclipse.xtext.resource.XtextResourceSet.getResource(XtextResourceSet.java:136)
+	at org.eclipse.xtext.resource.SynchronizedXtextResourceSet.getResource(SynchronizedXtextResourceSet.java:23)
+	at org.openhab.model.core.internal.ModelRepositoryImpl.getResource(ModelRepositoryImpl.java:153)
+	at org.openhab.model.core.internal.ModelRepositoryImpl.addOrRefreshModel(ModelRepositoryImpl.java:71)
+	at org.openhab.model.core.internal.folder.FolderObserver.checkFolder(FolderObserver.java:142)
+	at org.openhab.model.core.internal.folder.FolderObserver.run(FolderObserver.java:99)
+Caused by: java.lang.IllegalStateException: The platform metadata area could not be written: /opt/openhab/workspace/.metadata.  By default the platform writes its content
+under the current working directory when the platform is launched.  Use the -data parameter to
+specify a different content area for the platform.
+	at org.eclipse.core.internal.runtime.DataArea.assertLocationInitialized(DataArea.java:61)
+	at org.eclipse.core.internal.runtime.DataArea.getStateLocation(DataArea.java:120)
+	at org.eclipse.core.internal.runtime.InternalPlatform.getStateLocation(InternalPlatform.java:546)
+	at org.eclipse.core.runtime.Plugin.getStateLocation(Plugin.java:313)
+	at org.eclipse.core.internal.resources.LocalMetaArea.<init>(LocalMetaArea.java:57)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:430)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:711)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
+	... 24 more
+Root exception:
+java.lang.IllegalStateException: The platform metadata area could not be written: /opt/openhab/workspace/.metadata.  By default the platform writes its content
+under the current working directory when the platform is launched.  Use the -data parameter to
+specify a different content area for the platform.
+	at org.eclipse.core.internal.runtime.DataArea.assertLocationInitialized(DataArea.java:61)
+	at org.eclipse.core.internal.runtime.DataArea.getStateLocation(DataArea.java:120)
+	at org.eclipse.core.internal.runtime.InternalPlatform.getStateLocation(InternalPlatform.java:546)
+	at org.eclipse.core.runtime.Plugin.getStateLocation(Plugin.java:313)
+	at org.eclipse.core.internal.resources.LocalMetaArea.<init>(LocalMetaArea.java:57)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:430)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:711)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:683)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:300)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:263)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:469)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.SingleSourcePackage.loadClass(SingleSourcePackage.java:35)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:461)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:421)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:412)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at org.eclipse.emf.ecore.plugin.EcorePlugin.getWorkspaceRoot(EcorePlugin.java:617)
+	at org.eclipse.emf.ecore.resource.impl.ExtensibleURIConverterImpl.<clinit>(ExtensibleURIConverterImpl.java:387)
+	at org.eclipse.xtext.resource.XtextResourceSet.getURIConverter(XtextResourceSet.java:170)
+	at org.eclipse.xtext.resource.XtextResourceSet.getResource(XtextResourceSet.java:136)
+	at org.eclipse.xtext.resource.SynchronizedXtextResourceSet.getResource(SynchronizedXtextResourceSet.java:23)
+	at org.openhab.model.core.internal.ModelRepositoryImpl.getResource(ModelRepositoryImpl.java:153)
+	at org.openhab.model.core.internal.ModelRepositoryImpl.addOrRefreshModel(ModelRepositoryImpl.java:71)
+	at org.openhab.model.core.internal.folder.FolderObserver.checkFolder(FolderObserver.java:142)
+	at org.openhab.model.core.internal.folder.FolderObserver.run(FolderObserver.java:99)
+
+!ENTRY org.eclipse.equinox.cm 4 0 2015-11-15 22:54:06.835
+!MESSAGE Could not initialize class org.eclipse.xtext.resource.XtextResourceSet$1
+!STACK 0
+java.lang.NoClassDefFoundError: Could not initialize class org.eclipse.xtext.resource.XtextResourceSet$1
+	at org.eclipse.xtext.resource.XtextResourceSet.getURIConverter(XtextResourceSet.java:170)
+	at org.eclipse.xtext.resource.XtextResourceSet.getResource(XtextResourceSet.java:136)
+	at org.eclipse.xtext.resource.SynchronizedXtextResourceSet.getResource(SynchronizedXtextResourceSet.java:23)
+	at org.openhab.model.core.internal.ModelRepositoryImpl.getResource(ModelRepositoryImpl.java:153)
+	at org.openhab.model.core.internal.ModelRepositoryImpl.addOrRefreshModel(ModelRepositoryImpl.java:71)
+	at org.openhab.model.core.internal.folder.FolderObserver.checkFolder(FolderObserver.java:142)
+	at org.openhab.model.core.internal.folder.FolderObserver.updated(FolderObserver.java:201)
+	at org.eclipse.equinox.internal.cm.ManagedServiceTracker$1.run(ManagedServiceTracker.java:183)
+	at org.eclipse.equinox.internal.cm.SerializedTaskQueue$1.run(SerializedTaskQueue.java:36)
+
+!ENTRY org.eclipse.equinox.ds 4 0 2015-11-15 22:54:11.764
+!MESSAGE Could not bind a reference of component org.openhab.core.persistence.manager. The reference is: Reference[name = PersistenceService, interface = org.openhab.core.persistence.PersistenceService, policy = dynamic, cardinality = 0..n, target = null, bind = addPersistenceService, unbind = removePersistenceService]
+
+!ENTRY org.eclipse.equinox.ds 4 0 2015-11-15 22:54:11.765
+!MESSAGE Could not bind a reference of component org.openhab.core.persistence.manager. The reference is: Reference[name = PersistenceService, interface = org.openhab.core.persistence.PersistenceService, policy = dynamic, cardinality = 0..n, target = null, bind = addPersistenceService, unbind = removePersistenceService]
+
+!ENTRY org.eclipse.core.resources 4 0 2015-11-15 22:54:21.222
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Exception in org.eclipse.core.resources.ResourcesPlugin.start() of bundle org.eclipse.core.resources.
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:734)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:683)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:390)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1176)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.setBundleSL(StartLevelManager.java:670)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:435)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+Caused by: java.lang.IllegalStateException: The platform metadata area could not be written: /opt/openhab/workspace/.metadata.  By default the platform writes its content
+under the current working directory when the platform is launched.  Use the -data parameter to
+specify a different content area for the platform.
+	at org.eclipse.core.internal.runtime.DataArea.assertLocationInitialized(DataArea.java:61)
+	at org.eclipse.core.internal.runtime.DataArea.getStateLocation(DataArea.java:120)
+	at org.eclipse.core.internal.runtime.InternalPlatform.getStateLocation(InternalPlatform.java:546)
+	at org.eclipse.core.runtime.Plugin.getStateLocation(Plugin.java:313)
+	at org.eclipse.core.internal.resources.LocalMetaArea.<init>(LocalMetaArea.java:57)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:430)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:711)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
+	... 9 more
+Root exception:
+java.lang.IllegalStateException: The platform metadata area could not be written: /opt/openhab/workspace/.metadata.  By default the platform writes its content
+under the current working directory when the platform is launched.  Use the -data parameter to
+specify a different content area for the platform.
+	at org.eclipse.core.internal.runtime.DataArea.assertLocationInitialized(DataArea.java:61)
+	at org.eclipse.core.internal.runtime.DataArea.getStateLocation(DataArea.java:120)
+	at org.eclipse.core.internal.runtime.InternalPlatform.getStateLocation(InternalPlatform.java:546)
+	at org.eclipse.core.runtime.Plugin.getStateLocation(Plugin.java:313)
+	at org.eclipse.core.internal.resources.LocalMetaArea.<init>(LocalMetaArea.java:57)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:430)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:711)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:683)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:390)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1176)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.setBundleSL(StartLevelManager.java:670)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:435)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.osgi 4 0 2015-11-15 22:54:24.373
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+java.io.FileNotFoundException: /opt/openhab/server/configuration/org.eclipse.osgi/bundles/221/.delete (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:206)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:156)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorageHook.delete(BaseStorageHook.java:285)
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.undo(BundleInstall.java:114)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorkerPrivileged(Framework.java:985)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:845)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorker(Framework.java:904)
+	at org.eclipse.osgi.framework.internal.core.Framework.installBundle(Framework.java:840)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.installBundle(BundleContextImpl.java:137)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.installOrUpdateBundle(DirectoryWatcher.java:1030)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:944)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:857)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.process(DirectoryWatcher.java:483)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.run(DirectoryWatcher.java:291)
+
+!ENTRY org.apache.felix.fileinstall 4 0 2015-11-15 22:54:24.377
+!MESSAGE Failed to install artifact: /opt/openhab/addons/org.openhab.binding.http-1.7.1.jar
+!STACK 0
+org.osgi.framework.BundleException: An error occurred trying to read the bundle
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.begin(BundleInstall.java:94)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorkerPrivileged(Framework.java:941)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:845)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorker(Framework.java:904)
+	at org.eclipse.osgi.framework.internal.core.Framework.installBundle(Framework.java:840)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.installBundle(BundleContextImpl.java:137)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.installOrUpdateBundle(DirectoryWatcher.java:1030)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:944)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:857)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.process(DirectoryWatcher.java:483)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.run(DirectoryWatcher.java:291)
+Caused by: java.io.FileNotFoundException: /opt/openhab/server/configuration/org.eclipse.osgi/bundles/221/1/bundlefile (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:206)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:156)
+	at org.eclipse.osgi.internal.baseadaptor.AdaptorUtil.readFile(AdaptorUtil.java:72)
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.begin(BundleInstall.java:79)
+	... 12 more
+Root exception:
+java.io.FileNotFoundException: /opt/openhab/server/configuration/org.eclipse.osgi/bundles/221/1/bundlefile (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:206)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:156)
+	at org.eclipse.osgi.internal.baseadaptor.AdaptorUtil.readFile(AdaptorUtil.java:72)
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.begin(BundleInstall.java:79)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorkerPrivileged(Framework.java:941)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:845)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorker(Framework.java:904)
+	at org.eclipse.osgi.framework.internal.core.Framework.installBundle(Framework.java:840)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.installBundle(BundleContextImpl.java:137)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.installOrUpdateBundle(DirectoryWatcher.java:1030)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:944)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:857)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.process(DirectoryWatcher.java:483)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.run(DirectoryWatcher.java:291)
+
+!ENTRY org.eclipse.osgi 4 0 2015-11-15 22:54:24.389
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+java.io.FileNotFoundException: /opt/openhab/server/configuration/org.eclipse.osgi/bundles/222/.delete (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:206)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:156)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorageHook.delete(BaseStorageHook.java:285)
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.undo(BundleInstall.java:114)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorkerPrivileged(Framework.java:985)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:845)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorker(Framework.java:904)
+	at org.eclipse.osgi.framework.internal.core.Framework.installBundle(Framework.java:840)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.installBundle(BundleContextImpl.java:137)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.installOrUpdateBundle(DirectoryWatcher.java:1030)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:944)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:857)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.process(DirectoryWatcher.java:483)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.run(DirectoryWatcher.java:291)
+
+!ENTRY org.apache.felix.fileinstall 4 0 2015-11-15 22:54:24.393
+!MESSAGE Failed to install artifact: /opt/openhab/addons/org.openhab.binding.tellstick-1.7.1.jar
+!STACK 0
+org.osgi.framework.BundleException: An error occurred trying to read the bundle
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.begin(BundleInstall.java:94)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorkerPrivileged(Framework.java:941)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:845)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorker(Framework.java:904)
+	at org.eclipse.osgi.framework.internal.core.Framework.installBundle(Framework.java:840)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.installBundle(BundleContextImpl.java:137)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.installOrUpdateBundle(DirectoryWatcher.java:1030)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:944)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:857)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.process(DirectoryWatcher.java:483)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.run(DirectoryWatcher.java:291)
+Caused by: java.io.FileNotFoundException: /opt/openhab/server/configuration/org.eclipse.osgi/bundles/222/1/bundlefile (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:206)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:156)
+	at org.eclipse.osgi.internal.baseadaptor.AdaptorUtil.readFile(AdaptorUtil.java:72)
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.begin(BundleInstall.java:79)
+	... 12 more
+Root exception:
+java.io.FileNotFoundException: /opt/openhab/server/configuration/org.eclipse.osgi/bundles/222/1/bundlefile (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:206)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:156)
+	at org.eclipse.osgi.internal.baseadaptor.AdaptorUtil.readFile(AdaptorUtil.java:72)
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.begin(BundleInstall.java:79)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorkerPrivileged(Framework.java:941)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:845)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorker(Framework.java:904)
+	at org.eclipse.osgi.framework.internal.core.Framework.installBundle(Framework.java:840)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.installBundle(BundleContextImpl.java:137)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.installOrUpdateBundle(DirectoryWatcher.java:1030)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:944)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:857)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.process(DirectoryWatcher.java:483)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.run(DirectoryWatcher.java:291)
+
+!ENTRY org.eclipse.osgi 4 0 2015-11-15 22:54:24.403
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+java.io.FileNotFoundException: /opt/openhab/server/configuration/org.eclipse.osgi/bundles/223/.delete (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:206)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:156)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorageHook.delete(BaseStorageHook.java:285)
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.undo(BundleInstall.java:114)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorkerPrivileged(Framework.java:985)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:845)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorker(Framework.java:904)
+	at org.eclipse.osgi.framework.internal.core.Framework.installBundle(Framework.java:840)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.installBundle(BundleContextImpl.java:137)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.installOrUpdateBundle(DirectoryWatcher.java:1030)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:944)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:857)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.process(DirectoryWatcher.java:483)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.run(DirectoryWatcher.java:291)
+
+!ENTRY org.apache.felix.fileinstall 4 0 2015-11-15 22:54:24.406
+!MESSAGE Failed to install artifact: /opt/openhab/addons/org.openhab.persistence.exec-1.7.1.jar
+!STACK 0
+org.osgi.framework.BundleException: An error occurred trying to read the bundle
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.begin(BundleInstall.java:94)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorkerPrivileged(Framework.java:941)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:845)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorker(Framework.java:904)
+	at org.eclipse.osgi.framework.internal.core.Framework.installBundle(Framework.java:840)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.installBundle(BundleContextImpl.java:137)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.installOrUpdateBundle(DirectoryWatcher.java:1030)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:944)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:857)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.process(DirectoryWatcher.java:483)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.run(DirectoryWatcher.java:291)
+Caused by: java.io.FileNotFoundException: /opt/openhab/server/configuration/org.eclipse.osgi/bundles/223/1/bundlefile (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:206)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:156)
+	at org.eclipse.osgi.internal.baseadaptor.AdaptorUtil.readFile(AdaptorUtil.java:72)
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.begin(BundleInstall.java:79)
+	... 12 more
+Root exception:
+java.io.FileNotFoundException: /opt/openhab/server/configuration/org.eclipse.osgi/bundles/223/1/bundlefile (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:206)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:156)
+	at org.eclipse.osgi.internal.baseadaptor.AdaptorUtil.readFile(AdaptorUtil.java:72)
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.begin(BundleInstall.java:79)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorkerPrivileged(Framework.java:941)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:845)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorker(Framework.java:904)
+	at org.eclipse.osgi.framework.internal.core.Framework.installBundle(Framework.java:840)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.installBundle(BundleContextImpl.java:137)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.installOrUpdateBundle(DirectoryWatcher.java:1030)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:944)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:857)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.process(DirectoryWatcher.java:483)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.run(DirectoryWatcher.java:291)
+
+!ENTRY org.eclipse.osgi 4 0 2015-11-15 22:54:24.417
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+java.io.FileNotFoundException: /opt/openhab/server/configuration/org.eclipse.osgi/bundles/224/.delete (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:206)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:156)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorageHook.delete(BaseStorageHook.java:285)
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.undo(BundleInstall.java:114)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorkerPrivileged(Framework.java:985)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:845)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorker(Framework.java:904)
+	at org.eclipse.osgi.framework.internal.core.Framework.installBundle(Framework.java:840)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.installBundle(BundleContextImpl.java:137)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.installOrUpdateBundle(DirectoryWatcher.java:1030)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:944)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:857)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.process(DirectoryWatcher.java:483)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.run(DirectoryWatcher.java:291)
+
+!ENTRY org.apache.felix.fileinstall 4 0 2015-11-15 22:54:24.421
+!MESSAGE Failed to install artifact: /opt/openhab/addons/org.openhab.persistence.rrd4j-1.7.1.jar
+!STACK 0
+org.osgi.framework.BundleException: An error occurred trying to read the bundle
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.begin(BundleInstall.java:94)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorkerPrivileged(Framework.java:941)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:845)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorker(Framework.java:904)
+	at org.eclipse.osgi.framework.internal.core.Framework.installBundle(Framework.java:840)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.installBundle(BundleContextImpl.java:137)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.installOrUpdateBundle(DirectoryWatcher.java:1030)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:944)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:857)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.process(DirectoryWatcher.java:483)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.run(DirectoryWatcher.java:291)
+Caused by: java.io.FileNotFoundException: /opt/openhab/server/configuration/org.eclipse.osgi/bundles/224/1/bundlefile (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:206)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:156)
+	at org.eclipse.osgi.internal.baseadaptor.AdaptorUtil.readFile(AdaptorUtil.java:72)
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.begin(BundleInstall.java:79)
+	... 12 more
+Root exception:
+java.io.FileNotFoundException: /opt/openhab/server/configuration/org.eclipse.osgi/bundles/224/1/bundlefile (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:206)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:156)
+	at org.eclipse.osgi.internal.baseadaptor.AdaptorUtil.readFile(AdaptorUtil.java:72)
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.begin(BundleInstall.java:79)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorkerPrivileged(Framework.java:941)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:845)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorker(Framework.java:904)
+	at org.eclipse.osgi.framework.internal.core.Framework.installBundle(Framework.java:840)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.installBundle(BundleContextImpl.java:137)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.installOrUpdateBundle(DirectoryWatcher.java:1030)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:944)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:857)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.process(DirectoryWatcher.java:483)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.run(DirectoryWatcher.java:291)
+
+!ENTRY org.eclipse.osgi 4 0 2015-11-15 22:54:24.432
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+java.io.FileNotFoundException: /opt/openhab/server/configuration/org.eclipse.osgi/bundles/225/.delete (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:206)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:156)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorageHook.delete(BaseStorageHook.java:285)
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.undo(BundleInstall.java:114)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorkerPrivileged(Framework.java:985)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:845)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorker(Framework.java:904)
+	at org.eclipse.osgi.framework.internal.core.Framework.installBundle(Framework.java:840)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.installBundle(BundleContextImpl.java:137)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.installOrUpdateBundle(DirectoryWatcher.java:1030)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:944)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:857)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.process(DirectoryWatcher.java:483)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.run(DirectoryWatcher.java:291)
+
+!ENTRY org.apache.felix.fileinstall 4 0 2015-11-15 22:54:24.442
+!MESSAGE Failed to install artifact: /opt/openhab/addons/org.openhab.binding.ntp-1.7.1.jar
+!STACK 0
+org.osgi.framework.BundleException: An error occurred trying to read the bundle
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.begin(BundleInstall.java:94)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorkerPrivileged(Framework.java:941)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:845)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorker(Framework.java:904)
+	at org.eclipse.osgi.framework.internal.core.Framework.installBundle(Framework.java:840)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.installBundle(BundleContextImpl.java:137)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.installOrUpdateBundle(DirectoryWatcher.java:1030)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:944)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:857)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.process(DirectoryWatcher.java:483)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.run(DirectoryWatcher.java:291)
+Caused by: java.io.FileNotFoundException: /opt/openhab/server/configuration/org.eclipse.osgi/bundles/225/1/bundlefile (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:206)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:156)
+	at org.eclipse.osgi.internal.baseadaptor.AdaptorUtil.readFile(AdaptorUtil.java:72)
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.begin(BundleInstall.java:79)
+	... 12 more
+Root exception:
+java.io.FileNotFoundException: /opt/openhab/server/configuration/org.eclipse.osgi/bundles/225/1/bundlefile (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:206)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:156)
+	at org.eclipse.osgi.internal.baseadaptor.AdaptorUtil.readFile(AdaptorUtil.java:72)
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.begin(BundleInstall.java:79)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorkerPrivileged(Framework.java:941)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:845)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorker(Framework.java:904)
+	at org.eclipse.osgi.framework.internal.core.Framework.installBundle(Framework.java:840)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.installBundle(BundleContextImpl.java:137)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.installOrUpdateBundle(DirectoryWatcher.java:1030)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:944)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:857)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.process(DirectoryWatcher.java:483)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.run(DirectoryWatcher.java:291)
+
+!ENTRY org.eclipse.osgi 4 0 2015-11-15 22:54:24.452
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+java.io.FileNotFoundException: /opt/openhab/server/configuration/org.eclipse.osgi/bundles/226/.delete (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:206)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:156)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorageHook.delete(BaseStorageHook.java:285)
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.undo(BundleInstall.java:114)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorkerPrivileged(Framework.java:985)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:845)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorker(Framework.java:904)
+	at org.eclipse.osgi.framework.internal.core.Framework.installBundle(Framework.java:840)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.installBundle(BundleContextImpl.java:137)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.installOrUpdateBundle(DirectoryWatcher.java:1030)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:944)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:857)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.process(DirectoryWatcher.java:483)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.run(DirectoryWatcher.java:291)
+
+!ENTRY org.apache.felix.fileinstall 4 0 2015-11-15 22:54:24.465
+!MESSAGE Failed to install artifact: /opt/openhab/addons/org.openhab.persistence.logging-1.7.1.jar
+!STACK 0
+org.osgi.framework.BundleException: An error occurred trying to read the bundle
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.begin(BundleInstall.java:94)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorkerPrivileged(Framework.java:941)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:845)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorker(Framework.java:904)
+	at org.eclipse.osgi.framework.internal.core.Framework.installBundle(Framework.java:840)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.installBundle(BundleContextImpl.java:137)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.installOrUpdateBundle(DirectoryWatcher.java:1030)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:944)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:857)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.process(DirectoryWatcher.java:483)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.run(DirectoryWatcher.java:291)
+Caused by: java.io.FileNotFoundException: /opt/openhab/server/configuration/org.eclipse.osgi/bundles/226/1/bundlefile (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:206)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:156)
+	at org.eclipse.osgi.internal.baseadaptor.AdaptorUtil.readFile(AdaptorUtil.java:72)
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.begin(BundleInstall.java:79)
+	... 12 more
+Root exception:
+java.io.FileNotFoundException: /opt/openhab/server/configuration/org.eclipse.osgi/bundles/226/1/bundlefile (Permission denied)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:206)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:156)
+	at org.eclipse.osgi.internal.baseadaptor.AdaptorUtil.readFile(AdaptorUtil.java:72)
+	at org.eclipse.osgi.internal.baseadaptor.BundleInstall.begin(BundleInstall.java:79)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorkerPrivileged(Framework.java:941)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:845)
+	at org.eclipse.osgi.framework.internal.core.Framework$1.run(Framework.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.Framework.installWorker(Framework.java:904)
+	at org.eclipse.osgi.framework.internal.core.Framework.installBundle(Framework.java:840)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.installBundle(BundleContextImpl.java:137)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.installOrUpdateBundle(DirectoryWatcher.java:1030)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:944)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.install(DirectoryWatcher.java:857)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.process(DirectoryWatcher.java:483)
+	at org.apache.felix.fileinstall.internal.DirectoryWatcher.run(DirectoryWatcher.java:291)

@@ -1,0 +1,29 @@
+Group gHome
+Group gLivingroom      "Vardagsrum"     <video>     (gHome)
+Group gBedroom1        "Sovrum"         <bath>      (gHome)
+Group gHall 	       "Hall"           <hall>      (gHome)
+
+/* Lights Livingroom */
+Switch Light_gLivingroom_DoubleLamp   "DoubleLamp" (gLivingroom)    {tellstick="DoubleLamp:Command"}
+Switch Light_gLivingroom_GlobeLamp    "GlobeLamp"  (gLivingroom)    {tellstick="GlobeLamp:Command"}
+
+/* Lights Bedroom1 */
+Switch Light_gBedroom1_TableLamp "TableLamp" (gBedroom1) {tellstick="TableLamp:Command"}
+
+/* Lights Hall */
+Switch Light_gHall_WebKamera_1 "WebKamera_1" (gHall) {tellstick="WebKamera_1:Command"}
+
+/* Indoor Temperatures */
+Number gLivingroom_Temperature "Temperatur [%.1f °C]" <temperature> (gLivingroom) {tellstick="164:Temperature:Temperature:oregon"}﻿
+
+/* Indoor Humidity */
+/* Number gLivingroom_Humidity "Humidity [%.1f]%" <temperature> (gLivingroom) {tellstick="164:Humidity:oregon"}﻿ */
+/* Number gLivingroom_Humidity "Humidity [%.1f]%" <temperature> (gLivingroom) {tellstick="164:Temperature:Humidity:oregon"}﻿ */
+
+/* Tankte bara saga att mottagare av market ALFA (inkapta pa Clas Ohlson) */
+/* fungerar med Tellstick om man anvander sig av SARTANO-protokollet och  */
+/* sedan later installningarna i Tellstick "12345A BCDE" motsvara         */
+/* "123456 ABDC" i ALFA-enheterna. */
+/* Observera att kanalerna D och C verkar vara ombytta. */
+/* Switch Light_gLivingroom_AlfaA    "AlfaA"   (gLivingroom)  {tellstick="AlfaA:Command"} */
+
