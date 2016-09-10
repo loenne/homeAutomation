@@ -1,0 +1,93 @@
+import org.openhab.core.library.types.*
+import org.openhab.model.script.actions.*
+import java.lang.Math
+import java.util.Calendar
+import java.util.Date
+import java.util.TimeZone
+import java.text.SimpleDateFormat
+
+rule "Update House Humidity Min- and Max values"
+when
+    Item  gHuset_Humidity received update
+then
+    var Number Min
+    var Number Max
+    var String tmp
+    var SimpleDateFormat df = new SimpleDateFormat( "HH:mm" ) 
+
+    if (gHuset_Humidity.state instanceof DecimalType) {
+        Min = (gHuset_Humidity.minimumSince(now.toDateMidnight, "rrd4j").state as DecimalType)
+        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " % (" + df.format(gHuset_Humidity.minimumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gHuset_Humidity_Min_Formatted, tmp)
+
+        Max = gHuset_Humidity.maximumSince(now.toDateMidnight, "rrd4j").state as DecimalType
+        df = new SimpleDateFormat( "HH:mm" ) 
+        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " % (" + df.format(gHuset_Humidity.maximumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gHuset_Humidity_Max_Formatted, tmp)
+    }
+end
+
+rule "Update Outdoor Humidity Min- and Max values"
+when
+    Item  gTradgarden_Humidity received update
+then
+    var Number Min
+    var Number Max
+    var String tmp
+    var SimpleDateFormat df = new SimpleDateFormat( "HH:mm" )
+
+    if (gTradgarden_Humidity.state instanceof DecimalType) {
+        Min = (gTradgarden_Humidity.minimumSince(now.toDateMidnight, "rrd4j").state as DecimalType)
+        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " % (" + df.format(gTradgarden_Humidity.minimumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gTradgarden_Humidity_Min_Formatted, tmp)
+
+        Max = gTradgarden_Humidity.maximumSince(now.toDateMidnight, "rrd4j").state as DecimalType
+        df = new SimpleDateFormat( "HH:mm" )
+        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " % (" + df.format(gTradgarden_Humidity.maximumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gTradgarden_Humidity_Max_Formatted, tmp)
+    }
+end
+
+
+rule "Update Basement Humidity Min- and Max values"
+when
+    Item  gBasement_Humidity received update
+then
+    var Number Min
+    var Number Max
+    var String tmp
+    var SimpleDateFormat df = new SimpleDateFormat( "HH:mm" )
+
+    if (gBasement_Humidity.state instanceof DecimalType) {
+        Min = (gBasement_Humidity.minimumSince(now.toDateMidnight, "rrd4j").state as DecimalType)
+        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " % (" + df.format(gBasement_Humidity.minimumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gBasement_Humidity_Min_Formatted, tmp)
+
+        Max = gBasement_Humidity.maximumSince(now.toDateMidnight, "rrd4j").state as DecimalType
+        df = new SimpleDateFormat( "HH:mm" )
+        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " % (" + df.format(gBasement_Humidity.maximumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gBasement_Humidity_Max_Formatted, tmp)
+    }
+end
+
+rule "Update SovHuset Humidity Min- and Max values"
+when
+    Item  gSovHuset_Humidity received update
+then
+    var Number Min
+    var Number Max
+    var String tmp
+    var SimpleDateFormat df = new SimpleDateFormat( "HH:mm" )
+
+    if (gSovHuset_Humidity.state instanceof DecimalType) {
+        Min = (gSovHuset_Humidity.minimumSince(now.toDateMidnight, "rrd4j").state as DecimalType)
+        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " % (" + df.format(gSovHuset_Humidity.minimumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gSovHuset_Humidity_Min_Formatted, tmp)
+
+        Max = gSovHuset_Humidity.maximumSince(now.toDateMidnight, "rrd4j").state as DecimalType
+        df = new SimpleDateFormat( "HH:mm" )
+        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " °C (" + df.format(gSovHuset_Humidity.maximumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gSovHuset_Humidity_Max_Formatted, tmp)
+    }
+end
+

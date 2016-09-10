@@ -27,6 +27,28 @@ then
     }
 end
 
+rule "Update Outdoor Temperature Min- and Max values"
+when
+    Item  gTradgarden_Temperature received update
+then
+    var Number Min
+    var Number Max
+    var String tmp
+    var SimpleDateFormat df = new SimpleDateFormat( "HH:mm" )
+
+    if (gTradgarden_Temperature.state instanceof DecimalType) {
+        Min = (gTradgarden_Temperature.minimumSince(now.toDateMidnight, "rrd4j").state as DecimalType)
+        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " °C (" + df.format(gTradgarden_Temperature.minimumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gTradgarden_Temperature_Min_Formatted, tmp)
+
+        Max = gTradgarden_Temperature.maximumSince(now.toDateMidnight, "rrd4j").state as DecimalType
+        df = new SimpleDateFormat( "HH:mm" )
+        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " °C (" + df.format(gTradgarden_Temperature.maximumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gTradgarden_Temperature_Max_Formatted, tmp)
+    }
+end
+
+
 rule "Update Basement Temperature Min- and Max values"
 when
     Item  gBasement_Temperature received update
@@ -48,23 +70,23 @@ then
     }
 end
 
-rule "Update Sovhuset Temperature Min- and Max values"
+rule "Update SovHuset Temperature Min- and Max values"
 when
-    Item  gSovhuset_Temperature received update
+    Item  gSovHuset_Temperature received update
 then
     var Number Min
     var Number Max
     var String tmp
     var SimpleDateFormat df = new SimpleDateFormat( "HH:mm" )
 
-    if (gSovhuset_Temperature.state instanceof DecimalType) {
-        Min = (gSovhuset_Temperature.minimumSince(now.toDateMidnight, "rrd4j").state as DecimalType)
-        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " °C (" + df.format(gSovhuset_Temperature.minimumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
-        postUpdate(gSovhuset_Temperature_Min_Formatted, tmp)
+    if (gSovHuset_Temperature.state instanceof DecimalType) {
+        Min = (gSovHuset_Temperature.minimumSince(now.toDateMidnight, "rrd4j").state as DecimalType)
+        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " °C (" + df.format(gSovHuset_Temperature.minimumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gSovHuset_Temperature_Min_Formatted, tmp)
 
-        Max = gSovhuset_Temperature.maximumSince(now.toDateMidnight, "rrd4j").state as DecimalType
+        Max = gSovHuset_Temperature.maximumSince(now.toDateMidnight, "rrd4j").state as DecimalType
         df = new SimpleDateFormat( "HH:mm" )
-        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " °C (" + df.format(gSovhuset_Temperature.maximumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
-        postUpdate(gSovhuset_Temperature_Max_Formatted, tmp)
+        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " °C (" + df.format(gSovHuset_Temperature.maximumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gSovHuset_Temperature_Max_Formatted, tmp)
     }
 end

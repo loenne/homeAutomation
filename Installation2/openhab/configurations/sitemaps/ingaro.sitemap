@@ -10,7 +10,7 @@ sitemap ingaro label="Ingarö"
                 Group item=gNoak         label="Noaks rum"      icon="groundfloor"
         }
 
-        Frame label="Graphs" {
-                Chart item=gTemps period=m refresh=300
+        Frame label="Temperatures" {
+             Chart item=gTemps period=m refresh=300
         }
 }
