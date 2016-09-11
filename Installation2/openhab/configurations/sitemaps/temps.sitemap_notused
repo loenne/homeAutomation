@@ -1,0 +1,6 @@
+sitemap temps label="Ingarö Temperatures"
+{
+        Frame label="Temperatures" {
+                Chart item=gTemps period=m refresh=300
+        }
+}

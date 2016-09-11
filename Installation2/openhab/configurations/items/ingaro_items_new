@@ -3,7 +3,7 @@ Group gHuset        "Huset"         <video>     (gHome)
 Group gBasement     "Källaren"      <hall>      (gHome)
 Group gTradgarden   "Trädgarden"    <bath>      (gHome)
 Group gGuestHouse   "Gästhuset"     <hall>      (gHome)
-Group gSovHuset     "Sovhuset"      <hall>      (gHome)
+Group gSovhuset     "Sovhuset"      <hall>      (gHome)
 Group gChanna       "Channas rum"   <hall>      (gHome)
 Group gNoak         "Noaks rum"     <hall>      (gHome)
 Group gTemps                                    (gHome)
@@ -11,17 +11,17 @@ Group gHumids
 
 Group gMyOpenHAB
 
-Switch Light_gSovHuset_SleepHouseFloorLamp   "Golvlampa"                              (gSovHuset, gMyOpenHAB)          {tellstick="SleepHouseFloorLamp:Command"}
-Number gSovHuset_Humidity                    "FuktSovhus [%.1f ]"     <climate>       (gSovHuset, gMyOpenHAB, gHumids) {tellstick="151:Humidity"}
-Number gSovHuset_Temperature                 "TempSovhus [%.1f °C]"   <temperature>   (gSovHuset, gMyOpenHAB, gTemps)  {tellstick="151:Temperature"}
-String gSovHuset_Temperature_Min_Formatted   "Min. Temp [%s]" <temperature>           (gSovHuset)
-String gSovHuset_Temperature_Max_Formatted   "Max. Temp [%s]" <temperature>           (gSovHuset)
-String gSovHuset_Humidity_Min_Formatted      "Min. Humid [%s]" <climate>              (gSovHuset)
-String gSovHuset_Humidity_Max_Formatted      "Max. Humid [%s]" <climate>              (gSovHuset)
+Switch Light_gSovHuset_SleepHouseFloorLamp   "Golvlampa"                              (gSovhuset, gMyOpenHAB)          {tellstick="SleepHouseFloorLamp:Command"}
+Number gSovHuset_Humidity                    "LuftfuktighetS [%.1f ]"  <climate>      (gSovhuset, gMyOpenHAB, gHumids) {tellstick="151:Humidity"}
+Number gSovHuset_Temperature                 "TempSovhus [%.1f °C]"   <temperature>   (gSovhuset, gMyOpenHAB, gTemps)  {tellstick="151:Temperature"}
+String gSovHuset_Temperature_Min_Formatted   "Min. Temp [%s]" <temperature>           (gSovhuset)
+String gSovHuset_Temperature_Max_Formatted   "Max. Temp [%s]" <temperature>           (gSovhuset)
+String gSovHuset_Humidity_Min_Formatted      "Min. Humid [%s]" <climate>              (gSovhuset)
+String gSovHuset_Humidity_Max_Formatted      "Max. Humid [%s]" <climate>              (gSovhuset)
  
 Switch Light_gTradgarden_WaterPump           "Pump bevattning"                        (gTradgarden, gMyOpenHAB)          {tellstick="WaterPump:Command"}
 Switch Light_gTradgarden_DamPump             "Pump damm"                              (gTradgarden, gMyOpenHAB)          {tellstick="DamPump:Command"}
-Number gTradgarden_Humidity                  "FuktUte [%.1f ]"     <climate>          (gTradgarden, gMyOpenHAB, gHumids) {tellstick="183:Humidity"}
+Number gTradgarden_Humidity                  "LuftfuktighetU [%.1f ]"  <climate>      (gTradgarden, gMyOpenHAB, gHumids) {tellstick="183:Humidity"}
 Number gTradgarden_Temperature               "TempUte [%.1f °C]"   <temperature>      (gTradgarden, gMyOpenHAB, gTemps)  {tellstick="183:Temperature"}
 String gTradgarden_Temperature_Min_Formatted "Min. Temp [%s]" <temperature>           (gTradgarden)
 String gTradgarden_Temperature_Max_Formatted "Max. Temp [%s]" <temperature>           (gTradgarden)
@@ -30,16 +30,16 @@ String gTradgarden_Humidity_Max_Formatted    "Max. Humid [%s]" <climate>        
 
 Switch gGuestHouse_MotionDetect1             "Motion detect"                          (gGuestHouse, gMyOpenHAB)        {tellstick="MotionDetect1:Command"}
 
-Number gBasement_Humidity                    "FuktKällare [%.1f ]"     <climate>      (gBasement, gMyOpenHAB, gHumids) {tellstick="167:Humidity"}
+Number gBasement_Humidity                    "LuftfuktighetB [%.1f ]"  <climate>      (gBasement, gMyOpenHAB, gHumids) {tellstick="167:Humidity"}
 Number gBasement_Temperature                 "TempKällare [%.1f °C]"   <temperature>  (gBasement, gMyOpenHAB, gTemps)  {tellstick="167:Temperature"}
 String gBasement_Temperature_Min_Formatted   "Min. Temp [%s]" <temperature>           (gBasement)
 String gBasement_Temperature_Max_Formatted   "Max. Temp [%s]" <temperature>           (gBasement)
 String gBasement_Humidity_Min_Formatted      "Min. Humid [%s]" <climate>              (gBasement)
 String gBasement_Humidity_Max_Formatted      "Max. Humid [%s]" <climate>              (gBasement)
 
-Switch Light_gHuset_HouseFloorLamp           "Golvlampa"                <moon>        (gHuset, gMyOpenHAB)            {tellstick="HouseFloorLamp:Command"}
-Switch gHuset_Heater1                        "Element_1"                <climate>     (gHuset, gMyOpenHAB)            {tellstick="HouseHeater1:Command"}
-Number gHuset_Humidity                       "FuktVardagsrum [%.1f ]"   <climate>     (gHuset, gMyOpenHAB, gHumids)   {tellstick="135:Humidity"}
+Switch Light_gHuset_HouseFloorLamp           "Golvlampa"              <moon>          (gHuset, gMyOpenHAB)            {tellstick="HouseFloorLamp:Command"}
+Switch gHuset_Heater1                        "Element_1"              <climate>       (gHuset, gMyOpenHAB)            {tellstick="HouseHeater1:Command"}
+Number gHuset_Humidity                       "LuftfuktighetV [%.1f ]"  <climate>      (gHuset, gMyOpenHAB, gHumids)   {tellstick="135:Humidity"}
 Number gHuset_Temperature                    "TempVardagsrum [%.1f °C]" <temperature> (gHuset, gMyOpenHAB, gTemps)    {tellstick="135:Temperature"}
 String gHuset_Temperature_Min_Formatted      "Min. Temp [%s]" <temperature>           (gHuset)
 String gHuset_Temperature_Max_Formatted      "Max. Temp [%s]" <temperature>           (gHuset)
