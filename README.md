@@ -1,6 +1,14 @@
 # homeAutomation
-Files used during home automation 
+# --------------
 
+# Repo storage
+# ------------
+The repo is stored at gitHub:
+
+> git clone https://github.com/loenne/homeAutomation.git
+
+# Files used during home automation 
+# ---------------------------------
 The repo will contain files from :
  - Rasperry pi at installation 2 (summerhouse)
     - Files configuring the openhab installation
