@@ -1,0 +1,27 @@
+This is a log from the NEXA motion detection activation a selflerning on/off switch.
+------------------------------------------------------------------------------------
+
+First we simulate motion :
+..........................
+1470151699: RawDeviceEvent: class:command;protocol:arctech;model:selflearning;house:18940946;unit:10;group:0;method:turnon;
+  controllerId: 3
+1470151699: RawDeviceEvent: class:command;protocol:sartano;model:codeswitch;code:0110011011;method:turnoff;
+  controllerId: 3
+1470151700: RawDeviceEvent: class:command;protocol:arctech;model:selflearning;house:18940946;unit:10;group:0;method:turnon;
+  controllerId: 3
+1470151700: RawDeviceEvent: class:command;protocol:sartano;model:codeswitch;code:0110011011;method:turnoff;
+  controllerId: 3
+
+After 5 seconds motion is ignored again:
+........................................
+1470151707: RawDeviceEvent: class:command;protocol:arctech;model:selflearning;house:18940946;unit:10;group:0;method:turnoff;
+  controllerId: 3
+1470151707: RawDeviceEvent: class:command;protocol:sartano;model:codeswitch;code:0110111011;method:turnoff;
+  controllerId: 3
+1470151708: RawDeviceEvent: class:command;protocol:sartano;model:codeswitch;code:0110111011;method:turnoff;
+  controllerId: 3
+1470151708: RawDeviceEvent: class:command;protocol:arctech;model:selflearning;house:18940946;unit:10;group:0;method:turnoff;
+  controllerId: 3
+1470151708: RawDeviceEvent: class:command;protocol:sartano;model:codeswitch;code:0110111011;method:turnoff;
+  controllerId: 3
+
