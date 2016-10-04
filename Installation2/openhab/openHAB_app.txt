@@ -1,9 +1,0 @@
-openHAB remote URL:
-https://ingaro.pagekite.me
-
-Alternative 2:
-https://my.openHAB.org
-
-
-
-

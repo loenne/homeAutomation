@@ -38,6 +38,17 @@ In file : /opt/openhab/configurations/logback.xml (row 40)
 
 INFO -> DEBUG
 
+When site is stable it should be set to WARNING
+
+
+Remote applications
+-------------------
+
+openHAB remote URL:
+https://ingaro.pagekite.me
+
+Alternative 2:
+https://my.openHAB.org
 
 
 
