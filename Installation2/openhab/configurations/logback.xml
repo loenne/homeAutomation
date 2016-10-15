@@ -32,13 +32,13 @@
 		</encoder>
 	</appender>
 
-	<logger name="runtime.busevents" level="INFO" additivity="false">
+	<logger name="runtime.busevents" level="WARN" additivity="false">
 		<appender-ref ref="EVENTFILE" />
 		<appender-ref ref="STDOUT" />
 	</logger>
 
         <!-- level="INFO" -->
-	<logger name="org.openhab" level="INFO"/>
+	<logger name="org.openhab" level="WARN"/>
 
 	<!-- this class gives an irrelevant warning at startup -->
 	<logger name="org.atmosphere.cpr.AtmosphereFramework" level="ERROR" />

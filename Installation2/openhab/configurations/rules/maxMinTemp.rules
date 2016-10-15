@@ -90,3 +90,25 @@ then
         postUpdate(gSovHuset_Temperature_Max_Formatted, tmp)
     }
 end
+
+rule "Update Channa Temperature Min- and Max values"
+when
+    Item  gChanna_Temperature received update
+then
+    var Number Min
+    var Number Max
+    var String tmp
+    var SimpleDateFormat df = new SimpleDateFormat( "HH:mm" )
+
+    if (gChanna_Temperature.state instanceof DecimalType) {
+        Min = (gChanna_Temperature.minimumSince(now.toDateMidnight, "rrd4j").state as DecimalType)
+        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " °C (" + df.format(gChanna_Temperature.minimumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gChanna_Temperature_Min_Formatted, tmp)
+
+        Max = gChanna_Temperature.maximumSince(now.toDateMidnight, "rrd4j").state as DecimalType
+        df = new SimpleDateFormat( "HH:mm" )
+        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " °C (" + df.format(gChanna_Temperature.maximumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gChanna_Temperature_Max_Formatted, tmp)
+    }
+end
+

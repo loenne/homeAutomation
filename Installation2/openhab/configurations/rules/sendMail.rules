@@ -24,6 +24,21 @@ then
     sendMail("bjorn.lonne@gmail.com","Water Pump", "Water Pump is turned OFF") 
 end
 
+
+//-----------------------------------------------------------------------
+// Rule to send mail when it is turned ON  (Motion is detected at car parking).
+//    Item gGuestHouse_MotionDetect1 state updated to ON
+//    Item gGuestHouse_MotionDetect1 received command ON
+//-----------------------------------------------------------------------
+rule "Send Motion Mail"
+when
+    Item gGuestHouse_MotionDetect1 received update
+then
+    logInfo("Motion detected", "At car park. State: "+gGuestHouse_MotionDetect1.state)
+    sendMail("bjorn.lonne@gmail.com","Motion detection", "Motion detection at car park")
+end
+
+
 //-----------------------------------------------------------------------
 // Rule to turn on/off a switch connected to a Heater.
 //   ON : temperature gets below a defined level

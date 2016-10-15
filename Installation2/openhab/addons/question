@@ -1,0 +1,15 @@
+Problem configuring my.openhab.
+
+Status is offline
+
+
+> lsb_release -da
+No LSB modules are available.
+Distributor ID:	Raspbian
+Description:	Raspbian GNU/Linux 8.0 (jessie)
+Release:	8.0
+Codename:	jessie
+
+
+
+
