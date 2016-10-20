@@ -3,7 +3,6 @@ import org.openhab.core.library.types.*
 import org.openhab.core.persistance.*
 import org.openhab.model.script.actions.*
 
-
 //-----------------------------------------------------------------------
 // Rule to turn on/off a switch connected to a Heater.
 //   ON : inside temperature gets below outside temperature
@@ -15,7 +14,7 @@ import org.openhab.model.script.actions.*
 //   2. if oldstate is ON do some checking
 //   3. if oldstate is OFF do some checking
 //
-/-----------------------------------------------------------------------
+//-----------------------------------------------------------------------
 rule "Sovhuset temperature adjuster"
 when
     Item gSovHuset_Temperature received update
@@ -25,31 +24,34 @@ then
     var OnOffType existingState = Light_gSovHuset_SleepHouseFloorLamp.last.state as OnOffType
     var OnOffType newState = existingState
     var hysteresis = 2
-    val tempIn  = gSovHuset_Temperature.last.state as DecimaType
-    val tempOut = gTradgarden_Temperature.last.state as DecimaType
+    var DecimalType tempIn  = gSovHuset_Temperature.state as DecimalType
+    var DecimalType tempOut = gTradgarden_Temperature.state as DecimalType
 
     if (existingState == ON)
     {
+        logInfo("DEBUG 111111111111")
         if (tempIn >= tempOut + hysteresis)
         {
+            logInfo("DEBUG 22222222222")
             newState = OFF
         }
     }
     else 
     {
-        if (tempIn < tempOut - hysteresis)
+        logInfo("DEBUG 3333333333333")
+
+        if (tempIn < tempOut)
         {
-            newState = OFF
+            logInfo("DEBUG 44444444444")
+            newState = ON
         }
     }
     
-    if (oldState != existingState)
+    if (newState != existingState)
     {
-        //postUpdate(Light_gSovHuset_SleepHouseFloorLamp.last.state as OnOffType)
-        sendCommand(Light_gSovHuset_SleepHouseFloorLamp.last, newState)
-        logInfo("House Temperature changed", "temperature below 10. Turn on heater 1. Temp: "+gHuset_Temperature.state)
+        logInfo("DEBUG 5555555555")
+        //postUpdate(Light_gSovHuset_SleepHouseFloorLamp.state as OnOffType)
+        sendCommand(Light_gSovHuset_SleepHouseFloorLamp, newState)
+        sendMail("bjorn.lonne@gmail.com","Sleephouse Temperature warning", "Temperature inside below outside. Turning ON Heater 1. Temp:"+tempIn)
     }
-        
-    //sendMail("bjorn.lonne@gmail.com","House Temperature warning", "Temperature in house below 10 degrees. Turning ON Heater 1. Temp:"+gHuset_Temperature.state)
-            
 end
