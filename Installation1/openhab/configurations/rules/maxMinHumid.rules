@@ -1,0 +1,49 @@
+import org.openhab.core.library.types.*
+import org.openhab.model.script.actions.*
+import java.lang.Math
+import java.util.Calendar
+import java.util.Date
+import java.util.TimeZone
+import java.text.SimpleDateFormat
+
+rule "Update Livingroom Humidity Min- and Max values"
+when
+    Item  gLivingroom_Humidity received update
+then
+    var Number Min
+    var Number Max
+    var String tmp
+    var SimpleDateFormat df = new SimpleDateFormat( "HH:mm" ) 
+
+    if (gLivingroom_Humidity.state instanceof DecimalType) {
+        Min = (gLivingroom_Humidity.minimumSince(now.toDateMidnight, "rrd4j").state as DecimalType)
+        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " % (" + df.format(gLivingroom_Humidity.minimumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gLivingroom_Humidity_Min_Formatted, tmp)
+
+        Max = gLivingroom_Humidity.maximumSince(now.toDateMidnight, "rrd4j").state as DecimalType
+        df = new SimpleDateFormat( "HH:mm" ) 
+        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " % (" + df.format(gLivingroom_Humidity.maximumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gLivingroom_Humidity_Max_Formatted, tmp)
+    }
+end
+
+rule "Update Outdoor Humidity Min- and Max values"
+when
+    Item  gOutdoor_Humidity received update
+then
+    var Number Min
+    var Number Max
+    var String tmp
+    var SimpleDateFormat df = new SimpleDateFormat( "HH:mm" )
+
+    if (gOutdoor_Humidity.state instanceof DecimalType) {
+        Min = (gOutdoor_Humidity.minimumSince(now.toDateMidnight, "rrd4j").state as DecimalType)
+        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " % (" + df.format(gOutdoor_Humidity.minimumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gOutdoor_Humidity_Min_Formatted, tmp)
+
+        Max = gOutdoor_Humidity.maximumSince(now.toDateMidnight, "rrd4j").state as DecimalType
+        df = new SimpleDateFormat( "HH:mm" )
+        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " % (" + df.format(gOutdoor_Humidity.maximumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gOutdoor_Humidity_Max_Formatted, tmp)
+    }
+end

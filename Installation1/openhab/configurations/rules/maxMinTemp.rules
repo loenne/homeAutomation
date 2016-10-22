@@ -1,0 +1,72 @@
+import org.openhab.core.library.types.*
+import org.openhab.model.script.actions.*
+import java.lang.Math
+import java.util.Calendar
+import java.util.Date
+import java.util.TimeZone
+import java.text.SimpleDateFormat
+
+
+/* Indoor temp and humidity */
+Number gLivingroom_Temperature                 "Temperatur [%.1f °C]"   <temperature>  (gLivingroom, gTemps)   {tellstick="164:Temperature:Temperature:oregon"}
+Number gLivingroom_Humidity                    "Luftfuktighet [%.1f ]"  <climate>      (gLivingroom, gHumids)  {tellstick="164:Humidity"}
+String gLivingroom_Temperature_Min_Formatted   "Min-Temp [%s]" <temperature>           (gLivingroom)
+String gLivingroom_Temperature_Max_Formatted   "Max-Temp [%s]" <temperature>           (gLivingroom)
+String gLivingroom_Humidity_Min_Formatted      "Min-Humid [%s]" <climate>              (gLivingroom)
+String gLivingroom_Humidity_Max_Formatted      "Max-Humid [%s]" <climate>              (gLivingroom)
+
+/* Outside temp and humidity */
+Number gOutside_Humidity                       "HumidUtomhus [%.1f ]"   <climate>      (gOutside, gHumids)   {tellstick="135:Humidity"}
+Number gOutside_Temperature                    "TempUtomhus [%.1f °C]" <temperature>   (gOutside, gTemps)    {tellstick="135:Temperature"}
+String gOutside_Temperature_Min_Formatted      "Outside-MinTemp [%s]" <temperature>   (gOutside)
+String gOutside_Temperature_Max_Formatted      "Outside-MaxTemp [%s]" <temperature>   (gOutside)
+String gOutside_Humidity_Min_Formatted         "Outside-MinHumid [%s]" <climate>      (gOutside)
+String gOutside_Humidity_Max_Formatted         "Outside-MaxHumid [%s]" <climate>      (gOutside)
+
+
+
+
+
+
+
+rule "Update Livingroom Temperature Min- and Max values"
+when
+    Item  gLivingroom_Temperature received update
+then
+    var Number Min
+    var Number Max
+    var String tmp
+    var SimpleDateFormat df = new SimpleDateFormat( "HH:mm" ) 
+
+    if (gLivingroom_Temperature.state instanceof DecimalType) {
+        Min = (gLivingroom_Temperature.minimumSince(now.toDateMidnight, "rrd4j").state as DecimalType)
+        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " °C (" + df.format(gLivingroom_Temperature.minimumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gLivingroom_Temperature_Min_Formatted, tmp)
+
+        Max = gLivingroom_Temperature.maximumSince(now.toDateMidnight, "rrd4j").state as DecimalType
+        df = new SimpleDateFormat( "HH:mm" ) 
+        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " °C (" + df.format(gLivingroom_Temperature.maximumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gLivingroom_Temperature_Max_Formatted, tmp)
+    }
+end
+
+rule "Update Outdoor Temperature Min- and Max values"
+when
+    Item  gOutdoor_Temperature received update
+then
+    var Number Min
+    var Number Max
+    var String tmp
+    var SimpleDateFormat df = new SimpleDateFormat( "HH:mm" )
+
+    if (gOutdoor_Temperature.state instanceof DecimalType) {
+        Min = (gOutdoor_Temperature.minimumSince(now.toDateMidnight, "rrd4j").state as DecimalType)
+        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " °C (" + df.format(gOutdoor_Temperature.minimumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gOutdoor_Temperature_Min_Formatted, tmp)
+
+        Max = gOutdoor_Temperature.maximumSince(now.toDateMidnight, "rrd4j").state as DecimalType
+        df = new SimpleDateFormat( "HH:mm" )
+        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " °C (" + df.format(gOutdoor_Temperature.maximumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gOutdoor_Temperature_Max_Formatted, tmp)
+    }
+end

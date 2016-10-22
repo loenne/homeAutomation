@@ -11,5 +11,4 @@ org.openhab.io.multimedia.tts.googletts-1.8.2.jar
 org.openhab.persistence.exec-1.8.2.jar
 org.openhab.persistence.logging-1.8.2.jar
 org.openhab.persistence.rrd4j-1.8.2.jar
-question
 
