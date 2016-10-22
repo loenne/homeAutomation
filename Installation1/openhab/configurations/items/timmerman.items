@@ -1,23 +1,30 @@
 Group gHome
 Group gLivingroom      "Vardagsrum"     <video>     (gHome)
 Group gBedroom1        "Sovrum"         <bath>      (gHome)
-Group gHall 	       "Hall"           <hall>      (gHome)
+Group gHall            "Hall"           <hall>      (gHome)
+Group gOutside         "Utomhus"        <hall>      (gHome)
 Group gChanna          "Channas rum"    <hall>      (gHome)
 Group gNoak            "Noaks rum"      <hall>      (gHome)
 Group gTemps                                        (gHome)
+Group gHumids
 
 /* Lights Livingroom */
 Switch Light_gLivingroom_DoubleLamp   "DoubleLamp" (gLivingroom)    {tellstick="DoubleLamp:Command"}
 Switch Light_gLivingroom_GlobeLamp    "GlobeLamp"  (gLivingroom)    {tellstick="GlobeLamp:Command"}
 
 /* Lights Bedroom1 */
-Switch Light_gBedroom1_TableLamp "TableLamp" (gBedroom1) {tellstick="TableLamp:Command"}
+/*Switch Light_gBedroom1_TableLamp "TableLamp" (gBedroom1) {tellstick="TableLamp:Command"} */
 
 /* Lights Hall */
 Switch Light_gHall_WebKamera_1 "WebKamera_1" (gHall) {tellstick="WebKamera_1:Command"}
 
-/* Indoor Temperatures */
-Number gLivingroom_Temperature                 "Temperatur [%.1f °C]"   <temperature>  (gLivingroom, gTemps) {tellstick="164:Temperature:Temperature:oregon"}
-Number gLivingroom_Humidity                    "Luftfuktighet [%.1f ]"  <climate>      (gLivingroom)         {tellstick="164:Humidity"}
+/* Indoor temp and humidity */
+Number gLivingroom_Temperature                 "Temperatur [%.1f °C]"   <temperature>  (gLivingroom, gTemps)   {tellstick="164:Temperature:Temperature:oregon"}
+Number gLivingroom_Humidity                    "Luftfuktighet [%.1f ]"  <climate>      (gLivingroom, gHumids)  {tellstick="164:Humidity"}
 String gLivingroom_Temperature_Min_Formatted   "Min. Temp [%s]" <temperature>          (gLivingroom)
 String gLivingroom_Temperature_Max_Formatted   "Max. Temp [%s]" <temperature>          (gLivingroom)
+
+/* Outside temp and humidity */
+Number gOutside_Humidity                       "HumidUtomhus [%.1f ]"   <climate>     (gOutside, gHumids)   {tellstick="135:Humidity"}
+Number gOutside_Temperature                    "TempUtomhus [%.1f °C]" <temperature>  (gOutside, gTemps)    {tellstick="135:Temperature"}
+

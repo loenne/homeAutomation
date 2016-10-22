@@ -1,8 +1,32 @@
 sitemap timmerman label="Timmermansgatan"
 {
-	Frame label="Rooms" {
-		Group item=gLivingroom     label="Vardagsrum" icon="groundfloor"
-		Group item=gBedroom1       label="Sovrum"     icon="groundfloor"
-		Group item=gHall           label="Hall"       icon="groundfloor"	
-	}
+    Frame label="Rooms" {
+        Group item=gLivingroom     label="Vardagsrum"     icon="groundfloor"
+        Group item=gBedroom1       label="Sovrum"         icon="groundfloor"
+        Group item=gHall           label="Hall"           icon="groundfloor"
+        Group item=gChanna         label="Channas rum"    icon="groundfloor"
+        Group item=gNoak           label="Noaks rum"      icon="groundfloor"
+        Group item=gOutside        label="Utomhus"        icon="groundfloor"
+    }
+  
+    Frame label="Statistics" {
+
+        Text label="Temperature graph" icon="temperature" {
+
+            Frame {
+                Frame label="Temperatures" {
+                    Chart item=gTemps period=m refresh=300
+                }
+            }
+        }
+
+        Text label="Humidity graph" icon="climate" {
+
+            Frame {
+                Frame label="Humidity" {
+                    Chart item=gTemps period=m refresh=300
+                }
+            }
+        }
+    }
 }

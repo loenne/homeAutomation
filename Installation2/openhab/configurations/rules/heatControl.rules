@@ -27,25 +27,31 @@ when
     var OnOffType newState = existingState
     var DecimalType onHysteresis = 1
     var DecimalType offHysteresis = 2
-    var DecimalType tempIn  = gSovHuset_Temperature.state as DecimalType
-    var DecimalType tempOut = gOutside_Temperature.state as DecimalType
+ 
+    if (gSovHuset_Temperature.state instanceof DecimalType) {
+        var DecimalType tempIn  = gSovHuset_Temperature.state as DecimalType
+        
+        if (gOutside_Temperature.state instanceof DecimalType) {
+            var DecimalType tempOut = gOutside_Temperature.state as DecimalType
 
-    logInfo("DEBUG text", " in:"+tempIn+" tempUt:"+tempOut+" State:"+existingState)
+            logInfo("DEBUG text", " in:"+tempIn+" tempUt:"+tempOut+" State:"+existingState)
     
-    if (existingState == ON)
-    {
-        if ((tempIn-tempOut) > offHysteresis)
-        {
-            logInfo("SleepHouse temp too high", " temp Inside - temp Outside > hysteresis. Turn OFF heater.")
-            newState = OFF
-        }
-    }
-    else 
-    {
-        if ((tempOut-tempIn) > onHysteresis)
-        {
-            logInfo("SleepHouse temp too low" , " temp Outside - temp inside > hysteresis. Turn ON heater.")
-            newState = ON
+            if (existingState == ON)
+            {
+                if ((tempIn-tempOut) > offHysteresis)
+                {
+                    logInfo("SleepHouse temp too high", " temp Inside - temp Outside > hysteresis. Turn OFF heater.")
+                    newState = OFF
+                }
+            }
+            else 
+            {
+                if ((tempOut-tempIn) > onHysteresis)
+                {
+                    logInfo("SleepHouse temp too low" , " temp Outside - temp inside > hysteresis. Turn ON heater.")
+                    newState = ON
+                }
+            }
         }
     }
 
