@@ -5,53 +5,90 @@ import org.openhab.model.script.actions.*
 
 //-----------------------------------------------------------------------
 // Rule to turn on/off a switch connected to a Heater.
-//   ON : inside temperature gets below outside temperature
-//   OFF: temperature is above a defined level
-//        Inside temperature used : gSovhuset_Temperature
-//        Outside temperature used : gTradgarden_Temperature
 //
-//   1. Fetch value of switch
-//   2. if oldstate is ON do some checking
-//   3. if oldstate is OFF do some checking
+//   Inside temperature used  : gSovHuset_Temperature
+//   Outside temperature used : gTradgarden_Temperature
+//   Heater switch            : Light_gSovHuset_SleepHouseFloorLamp
+//
+//   1. Fetch value of heater switch
+//   2. if existingState is ON 
+//      Check if tempIn > tempOut and if so, turn OFF heater.
+//   3. if existingState is OFF:
+//      Check if tempIn is < tempOut and if so, turn ON heater.
 //
 //-----------------------------------------------------------------------
-rule "Sovhuset temperature adjuster"
+rule "SleepHouse temperature adjuster"
 when
+
     Item gSovHuset_Temperature received update
     or Item gTradgarden_Temperature received update
-then
-    
-    var OnOffType existingState = Light_gSovHuset_SleepHouseFloorLamp.last.state as OnOffType
-    var OnOffType newState = existingState
-    var hysteresis = 2
-    var DecimalType tempIn  = gSovHuset_Temperature.state as DecimalType
-    var DecimalType tempOut = gTradgarden_Temperature.state as DecimalType
 
+    var OnOffType existingState = Light_gSovHuset_SleepHouseFloorLamp.state as OnOffType
+    var OnOffType newState = existingState
+    var DecimalType onHysteresis = 1
+    var DecimalType offHysteresis = 2
+    var DecimalType tempIn  = gSovHuset_Temperature.state as DecimalType
+    var DecimalType tempOut = gOutside_Temperature.state as DecimalType
+
+    logInfo("DEBUG text", " in:"+tempIn+" tempUt:"+tempOut+" State:"+existingState)
+    
     if (existingState == ON)
     {
-        logInfo("DEBUG 111111111111")
-        if (tempIn >= tempOut + hysteresis)
+        if ((tempIn-tempOut) > offHysteresis)
         {
-            logInfo("DEBUG 22222222222")
+            logInfo("SleepHouse temp too high", " temp Inside - temp Outside > hysteresis. Turn OFF heater.")
             newState = OFF
         }
     }
     else 
     {
-        logInfo("DEBUG 3333333333333")
-
-        if (tempIn < tempOut)
+        if ((tempOut-tempIn) > onHysteresis)
         {
-            logInfo("DEBUG 44444444444")
+            logInfo("SleepHouse temp too low" , " temp Outside - temp inside > hysteresis. Turn ON heater.")
             newState = ON
         }
     }
-    
+
     if (newState != existingState)
     {
-        logInfo("DEBUG 5555555555")
-        //postUpdate(Light_gSovHuset_SleepHouseFloorLamp.state as OnOffType)
         sendCommand(Light_gSovHuset_SleepHouseFloorLamp, newState)
-        sendMail("bjorn.lonne@gmail.com","Sleephouse Temperature warning", "Temperature inside below outside. Turning ON Heater 1. Temp:"+tempIn)
+
+        if (newState == ON)
+        {
+            sendMail("bjorn.lonne@gmail.com","SleepHouse temperature warning", "Temperature inside too low. Turning ON Heater. in:"+tempIn+" out"+tempOut)
+        }
+        else
+        {
+            sendMail("bjorn.lonne@gmail.com","SleepHouse temperature warning", "Temperature inside too high. Turning OFF Heater. in:"+tempIn+" out"+tempOut)
+        }
+    }
+end
+
+//-----------------------------------------------------------------------
+// Rule to turn on/off a switch connected to a Heater.
+//
+//   Inside temperature used  : gHuset_Temperature
+//   Heater switch            : gHuset_Heater1
+//
+//   1. Check if temp is below MINTEMP and heater is OFF.
+//      Turn heater ON.
+//   2. Or check if temp is above MAXTEMP and heater is ON.
+//      Turn heater OFF.
+//-----------------------------------------------------------------------
+rule "House temperature trigger"
+when
+    Item gHuset_Temperature changed
+then
+    if ((gHuset_Temperature.state < 10) && (gHuset_Heater1.state == OFF)) {
+        logInfo("House Temperature changed", "temperature below 10. Turn on heater 1. Temp: "+gHuset_Temperature.state)
+        sendCommand(gHuset_Heater1, ON)
+        sendMail("bjorn.lonne@gmail.com","House Temperature warning", "Temperature in house below 10 degrees. Turning ON Heater 1. Temp:"+gHuset_Temperature.state)
+    }
+    else {
+        if ((gHuset_Temperature.state > 15) && (gHuset_Heater1.state == ON)) {
+            logInfo("House Temperature changed", "temperature above 15 and gHusetHeater1 is ON. Temperature: "+gHuset_Temperature.state)
+            sendCommand(gHuset_Heater1, OFF)
+            sendMail("bjorn.lonne@gmail.com","House Temperature warning", "Temperature in house above 15 degrees. Turning OFF Heater 1. Temp:"+gHuset_Temperature.state)
+        }
     }
 end

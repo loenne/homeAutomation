@@ -5,17 +5,18 @@ import org.openhab.model.script.actions.*
 
 //-----------------------------------------------------------------------
 // Rule to turn on/off a switch connected to a Heater.
-//   ON : inside temperature gets below outside temperature
-//   OFF: temperature is above a defined level
-//        Inside temperature used : gSovhuset_Temperature
-//        Outside temperature used : gTradgarden_Temperature
 //
-//   1. Fetch value of switch
-//   2. if oldstate is ON do some checking
-//   3. if oldstate is OFF do some checking
+//   Inside temperature used  : gLivingroom_Temperature
+//   Outside temperature used : gOutside_Temperature
+//
+//   1. Fetch value of heater switch
+//   2. if existingState is ON 
+//      Check if tempIn > tempOut and if so, turn OFF heater.
+//   3. if existingState is OFF:
+//      Check if tempIn is < tempOut and if so, turn ON heater.
 //
 //-----------------------------------------------------------------------
-rule "Huset temperature adjuster"
+rule "House temperature adjuster"
 when
 
     Item gLivingroom_Temperature received update
@@ -27,9 +28,8 @@ when
     var DecimalType offHysteresis = 2
     var DecimalType tempIn  = gLivingroom_Temperature.state as DecimalType
     var DecimalType tempOut = gOutside_Temperature.state as DecimalType
-    var DecimalType tempDiff = 0
 
-//    logInfo("DEBUG", " in:"+tempIn+" tempUt:"+tempOut+" State:"+existingState)
+    // logInfo("DEBUG text", " in:"+tempIn+" tempUt:"+tempOut+" State:"+existingState)
     
     if (existingState == ON)
     {
@@ -47,11 +47,19 @@ when
             newState = ON
         }
     }
+
     if (newState != existingState)
     {
-        logInfo("DEBUG", " Set switch to: "+newState)
         sendCommand(Light_gLivingroom_GlobeLamp, newState)
-//      sendMail("bjorn.lonne@gmail.com","Sleephouse Temperature warning", "Temperature inside below outside. Turning ON Heater 1. Temp:"+tempIn)
+
+        if (newState == ON)
+        {
+            sendMail("bjorn.lonne@gmail.com","Livingroom temperature warning", "Temperature inside too low. Turning ON Heater. in:"+tempIn+" out"+tempOut)
+        }
+        else
+        {
+            sendMail("bjorn.lonne@gmail.com","Livingroom temperature warning", "Temperature inside too high. Turning OFF Heater. in:"+tempIn+" out"+tempOut)
+        }
     }
 end
 
