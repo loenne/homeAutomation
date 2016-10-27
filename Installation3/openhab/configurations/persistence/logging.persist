@@ -10,6 +10,8 @@ Strategies {
  * item (excl. the group item itself).
  */
 Items {
-	// log all temperatures on every change
-	Temperature* -> "temperatures"
+    // log all temperatures on every change
+    // *Temperature -> "temps"
+    // *Humidity -> "humidity"
 }
+

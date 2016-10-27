@@ -91,3 +91,24 @@ then
     }
 end
 
+rule "Update Channa Humidity Min- and Max values"
+when
+    Item  gChanna_Humidity received update
+then
+    var Number Min
+    var Number Max
+    var String tmp
+    var SimpleDateFormat df = new SimpleDateFormat( "HH:mm" )
+
+    if (gChanna_Humidity.state instanceof DecimalType) {
+        Min = (gChanna_Humidity.minimumSince(now.toDateMidnight, "rrd4j").state as DecimalType)
+        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " % (" + df.format(gChanna_Humidity.minimumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gChanna_Humidity_Min_Formatted, tmp)
+
+        Max = gChanna_Humidity.maximumSince(now.toDateMidnight, "rrd4j").state as DecimalType
+        df = new SimpleDateFormat( "HH:mm" )
+        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " °C (" + df.format(gChanna_Humidity.maximumSince(now.toDateMidnight, "rrd4j").timestamp) + ")"
+        postUpdate(gChanna_Humidity_Max_Formatted, tmp)
+    }
+end
+

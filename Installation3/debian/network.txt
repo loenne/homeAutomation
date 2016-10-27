@@ -1,0 +1,66 @@
+Show network interfaces
+-----------------------
+>ifconfig 
+
+Edit the wpa_supplicant file
+----------------------------
+>sudo nano /etc/wpa_supplicant/wpa_supplicant.conf –
+
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=GB
+
+network={
+	ssid="Telenor_????"
+	psk="????? passkey ????"
+	proto=RSN
+	key_mgmt=WPA-PSK
+        pairwise=TKIP
+	auth_alg=OPEN
+	id_str="ingaroPi"
+}
+
+
+Edit the interfaces file
+------------------------
+>sudo nano /etc/network/interfaces
+
+
+# interfaces(5) file used by ifup(8) and ifdown(8)
+
+# Please note that this file is written to be used with dhcpcd
+# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
+
+# Include files from /etc/network/interfaces.d:
+source-directory /etc/network/interfaces.d
+
+#auto lo
+iface lo inet loopback
+
+#iface eth0 inet manual
+iface eth0 inet dhcp
+
+# WLAN
+allow-hotplug wlan0
+iface wlan0 inet manual
+#auto wlan0
+#iface wlan0 inet dhcp
+#wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+iface ingaroPi inet static
+address 192.168.0.144
+netmask 255.255.255.0
+gateway 192.168.0.1
+
+iface default inet dhcp
+
+#wpa-ssid “NATET”
+#wpa-psk “la8pvla8pvla8pv”
+
+#allow-hotplug wlan1
+#iface wlan1 inet manual
+#wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+
+Restart the network
+--------------------
+>sudo /etc/init.d/networking restart 
