@@ -185,7 +185,7 @@
     <!-- for an example).                                            -->
     <!-- =========================================================== -->
     
-    <!-- Ref id="RequestLog">
+    <Ref id="RequestLog">
       <Set name="requestLog">
         <New id="RequestLogImpl" class="org.eclipse.jetty.server.NCSARequestLog">
           <Set name="filename"><SystemProperty name="jetty.logs" default="./logs"/>/yyyy_mm_dd.request.log</Set>
@@ -197,7 +197,7 @@
           <Set name="LogTimeZone">GMT</Set>
         </New>
       </Set>
-    </Ref -->
+    </Ref>
 
     <!-- =========================================================== -->
     <!-- extra options                                               -->
