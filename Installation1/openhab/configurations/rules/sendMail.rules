@@ -1,0 +1,91 @@
+// import the decimal type as we refer to it in a rule
+import org.openhab.core.library.types.DecimalType
+import org.openhab.core.library.types.*
+import org.openhab.core.persistance.*
+import org.openhab.model.script.actions.*
+
+//-----------------------------------------------------------------------
+// Rule to Send mail when WaterPump is turned ON.
+//-----------------------------------------------------------------------
+rule "Send On Mail"
+when 
+    Item Light_gTradgarden_WaterPump received command ON
+then 
+    sendMail("bjorn.lonne@gmail.com","Water Pump", "Water Pump is turned ON")
+end
+
+//-----------------------------------------------------------------------
+// Rule to send mail when waterPump is turned OFF.
+//-----------------------------------------------------------------------
+rule "Send Off Mail"
+when 
+    Item Light_gTradgarden_WaterPump received command OFF
+then
+    sendMail("bjorn.lonne@gmail.com","Water Pump", "Water Pump is turned OFF") 
+end
+
+
+//-----------------------------------------------------------------------
+// Rule to send mail when it is turned ON  (Motion is detected at car parking).
+//    Item gGuestHouse_MotionDetect1 state updated to ON
+//    Item gGuestHouse_MotionDetect1 received command ON
+//-----------------------------------------------------------------------
+rule "Send Motion Mail"
+when
+    Item gGuestHouse_MotionDetect1 received update
+then
+    logInfo("Motion detected", "At car park. State: "+gGuestHouse_MotionDetect1.state)
+    sendMail("bjorn.lonne@gmail.com","Motion detection", "Motion detection at car park")
+end
+
+
+//-----------------------------------------------------------------------
+// Rule to turn on/off a switch connected to a Heater.
+//   ON : temperature gets below a defined level
+//   OFF: temperature is above a defined level
+//-----------------------------------------------------------------------
+rule "House temperature trigger"
+when
+    Item gHuset_Temperature changed
+then
+    if ((gHuset_Temperature.state < 10) && (gHuset_Heater1.state == OFF)) {
+        logInfo("House Temperature changed", "temperature below 10. Turn on heater 1. Temp: "+gHuset_Temperature.state)
+        sendCommand(gHuset_Heater1, ON)
+        sendMail("bjorn.lonne@gmail.com","House Temperature warning", "Temperature in house below 10 degrees. Turning ON Heater 1. Temp:"+gHuset_Temperature.state)
+    }
+    else {
+        if ((gHuset_Temperature.state > 15) && (gHuset_Heater1.state == ON)) {
+            logInfo("House Temperature changed", "temperature above 15 and gHusetHeater1 is ON. Temperature: "+gHuset_Temperature.state)
+            sendCommand(gHuset_Heater1, OFF)
+            sendMail("bjorn.lonne@gmail.com","House Temperature warning", "Temperature in house above 15 degrees. Turning OFF Heater 1. Temp:"+gHuset_Temperature.state)
+        }
+        else {
+//            logInfo("House Temperature changed", "temperature changed but Heater not changed. Temperature: "+gHuset_Temperature.state)
+        } 
+    }
+end
+
+//-----------------------------------------------------------------------
+// Rule to sendMail when a motion is detected
+//-----------------------------------------------------------------------
+//rule "Motion detection on parkinglot trigger"
+//when
+//    Item gHuset_Temperature changed
+//then
+//    if ((gHuset_Temperature.state < 10) && (gHuset_Heater1.state == OFF)) {
+//        logInfo("House Temperature changed", "temperature below 10. Turn on heater 1. Temp: "+gHuset_Temperature.state)
+//        sendCommand(gHuset_Heater1, ON)
+//        sendMail("bjorn.lonne@gmail.com","House Temperature warning", "Temperature in house below 10 degrees. Turning ON Heater 1. Temp:"+gHuset_Temperature.state)
+//    }
+//    else {
+//        if ((gHuset_Temperature.state > 15) && (gHuset_Heater1.state == ON)) {
+//            logInfo("House Temperature changed", "temperature above 15 and gHusetHeater1 is ON. Temperature: "+gHuset_Temperature.state)
+//            sendCommand(gHuset_Heater1, OFF)
+//            sendMail("bjorn.lonne@gmail.com","House Temperature warning", "Temperature in house above 15 degrees. Turning OFF Heater 1. Temp:"+gHuset_Temperature.state)
+//        }
+//        else {
+////            logInfo("House Temperature changed", "temperature changed but Heater not changed. Temperature: "+gHuset_Temperature.state)
+//        }
+//    }
+//end
+

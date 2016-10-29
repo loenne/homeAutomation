@@ -21,10 +21,15 @@ Switch Light_gHall_WebKamera_1 "WebKamera_1" (gHall) {tellstick="WebKamera_1:Com
 /* Indoor temp and humidity */
 Number gLivingroom_Temperature                 "Temperatur [%.1f °C]"   <temperature>  (gLivingroom, gTemps)   {tellstick="164:Temperature:Temperature:oregon"}
 Number gLivingroom_Humidity                    "Luftfuktighet [%.1f ]"  <climate>      (gLivingroom, gHumids)  {tellstick="164:Humidity"}
-String gLivingroom_Temperature_Min_Formatted   "Min. Temp [%s]" <temperature>          (gLivingroom)
-String gLivingroom_Temperature_Max_Formatted   "Max. Temp [%s]" <temperature>          (gLivingroom)
+String gLivingroom_Temperature_Min_Formatted   "Min-Temp [%s]" <temperature>           (gLivingroom)
+String gLivingroom_Temperature_Max_Formatted   "Max-Temp [%s]" <temperature>           (gLivingroom)
+String gLivingroom_Humidity_Min_Formatted      "Min-Humid [%s]" <climate>              (gLivingroom)
+String gLivingroom_Humidity_Max_Formatted      "Max-Humid [%s]" <climate>              (gLivingroom)
 
 /* Outside temp and humidity */
-Number gOutside_Humidity                       "HumidUtomhus [%.1f ]"   <climate>     (gOutside, gHumids)   {tellstick="135:Humidity"}
-Number gOutside_Temperature                    "TempUtomhus [%.1f °C]" <temperature>  (gOutside, gTemps)    {tellstick="135:Temperature"}
-
+Number gOutside_Humidity                       "HumidUtomhus [%.1f ]"   <climate>      (gOutside, gHumids)   {tellstick="135:Humidity"}
+Number gOutside_Temperature                    "TempUtomhus [%.1f °C]" <temperature>   (gOutside, gTemps)    {tellstick="135:Temperature"}
+String gOutside_Temperature_Min_Formatted      "Outside-MinTemp [%s]" <temperature>   (gOutside)
+String gOutside_Temperature_Max_Formatted      "Outside-MaxTemp [%s]" <temperature>   (gOutside)
+String gOutside_Humidity_Min_Formatted         "Outside-MinHumid [%s]" <climate>      (gOutside)
+String gOutside_Humidity_Max_Formatted         "Outside-MaxHumid [%s]" <climate>      (gOutside)

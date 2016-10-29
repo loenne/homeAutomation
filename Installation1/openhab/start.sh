@@ -12,10 +12,6 @@ HTTPS_PORT=8443
 # get path to equinox jar inside $eclipsehome folder
 cp=$(find $eclipsehome -name "org.eclipse.equinox.launcher_*.jar" | sort | tail -1);
 
-
-#-Dlogback.configurationFile=configurations/logback.xml \
-
-				   
 echo Launching the openHAB runtime...
 java \
 	-Dosgi.clean=true \
@@ -32,7 +28,6 @@ java \
 	-Dequinox.ds.block_timeout=240000 \
 	-Dequinox.scr.waitTimeOnBlock=60000 \
 	-Dfelix.fileinstall.active.level=4 \
-	-Dosgi.locking=none \
 	-Djava.awt.headless=true \
 	-jar $cp $* \
 	-console
