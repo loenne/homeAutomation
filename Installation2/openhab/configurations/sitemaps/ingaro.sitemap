@@ -25,7 +25,7 @@ sitemap ingaro label="Ingarö"
 
             Frame {
                 Frame label="Humidity" {
-                    Chart item=gTemps period=m refresh=300
+                    Chart item=gHumids period=m refresh=300
                 }
             }
         }
