@@ -1,8 +1,9 @@
 Installation1 has the following hardware
 ---------------------------------------------
 
-- Rasperry pi vers 2 ????
-  -linux (debian)
+- Rasperry pi vers 2
+- 7" screen HDMIPI
+- Mouse and keyboard
 
 Hardware for tellstick connections
 ----------------------------------

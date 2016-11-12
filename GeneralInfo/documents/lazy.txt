@@ -1,4 +1,0 @@
-> sudo service openhab status
-> sudo service telldusd status
-
-

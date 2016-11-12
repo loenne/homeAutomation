@@ -1,7 +1,0 @@
-The following users are created to make homeAutomation work
------------------------------------------------------------
-
-At openHab :  mail:2*fleksnes
-At IFTTT : mail:2*fleksnes
-
-

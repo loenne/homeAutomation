@@ -34,7 +34,7 @@ when
         if (gTradgarden_Temperature.state instanceof DecimalType) {
             var DecimalType tempOut = gTradgarden_Temperature.state as DecimalType
 
-            logInfo("DEBUG text", " in:"+tempIn+" tempUt:"+tempOut+" State:"+existingState)
+            logInfo("DEBUG text", " tempIn:"+tempIn+" tempUt:"+tempOut+" State:"+existingState)
     
             if (existingState == ON)
             {

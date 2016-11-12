@@ -1,0 +1,10 @@
+#copy the following files to git repo
+
+/etc/network/interfaces
+/etc/wpa_supplicant/wpa_supplicant.conf 
+
+These should be copied to the new Raspberry (Installation3)
+
+# Store the content of command ifconfig:
+
+>ifconfig

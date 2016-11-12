@@ -1,0 +1,35 @@
+Content of /etc/network/interfaces:
+-----------------------------------
+auto lo
+
+iface lo inet loopback
+iface eth0 inet dhcp
+
+allow-hotplug wlan0
+iface wlan0 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+iface default inet dhcp
+
+
+Content of /etc/wpa_supplicant/wpa_supplicant.conf
+--------------------------------------------------
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+	ssid="NATET-EL"
+	psk="la8pvla8pvla8pv"
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=TKIP
+	auth_alg=OPEN
+}
+
+network={
+	ssid="NATET"
+	psk="la8pvla8pvla8pv"
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=TKIP
+	auth_alg=OPEN
+}
