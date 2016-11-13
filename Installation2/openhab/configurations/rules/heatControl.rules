@@ -62,10 +62,12 @@ when
         if (newState == ON)
         {
             sendMail("bjorn.lonne@gmail.com","SleepHouse temperature warning", "Temperature inside too low. Turning ON Heater. in:"+tempIn+" out"+tempOut)
-        }
+            logInfo("INFO text", " Sent MAIL since temp inside too low and turning ON heater. In:"+tempIn+" Out:"+tempOut+" State:"+newState)
+       }
         else
         {
             sendMail("bjorn.lonne@gmail.com","SleepHouse temperature warning", "Temperature inside too high. Turning OFF Heater. in:"+tempIn+" out"+tempOut)
+            logInfo("INFO text", " Sent MAIL since temp inside too high and turning OFF heater. In:"+tempIn+" Out:"+tempOut+" State:"+newState)
         }
     }
 end
