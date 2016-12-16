@@ -87,13 +87,13 @@ rule "House temperature trigger"
 when
     Item gHuset_Temperature changed
 then
-    if ((gHuset_Temperature.state < 10) && (gHuset_Heater1.state == OFF)) {
+    if ((gHuset_Temperature.state < 8) && (gHuset_Heater1.state == OFF)) {
         logInfo("House Temperature changed", "temperature below 10. Turn on heater 1. Temp: "+gHuset_Temperature.state)
         sendCommand(gHuset_Heater1, ON)
         sendMail("bjorn.lonne@gmail.com","House Temperature warning", "Temperature in house below 10 degrees. Turning ON Heater 1. Temp:"+gHuset_Temperature.state)
     }
     else {
-        if ((gHuset_Temperature.state > 15) && (gHuset_Heater1.state == ON)) {
+        if ((gHuset_Temperature.state > 10) && (gHuset_Heater1.state == ON)) {
             logInfo("House Temperature changed", "temperature above 15 and gHusetHeater1 is ON. Temperature: "+gHuset_Temperature.state)
             sendCommand(gHuset_Heater1, OFF)
             sendMail("bjorn.lonne@gmail.com","House Temperature warning", "Temperature in house above 15 degrees. Turning OFF Heater 1. Temp:"+gHuset_Temperature.state)
