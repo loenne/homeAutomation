@@ -1,0 +1,88 @@
+#   Files backuped to gitHub !!
+#   ----------------------------------
+#
+
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/copy_to_git  /opt/openhab/copy_to_git
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/copy_from_git  /opt/openhab/copy_from_git
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/LICENSE.TXT /opt/openhab/LICENSE.TXT 
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/readme.txt /opt/openhab/readme.txt
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/start.bat /opt/openhab/start.bat
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/start_debug.bat /opt/openhab/start_debug.bat
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/start_debug.sh /opt/openhab/start_debug.sh
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/start.sh /opt/openhab/start.sh
+#
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/addons/addons.txt /opt/openhab/addons/addons.txt
+#
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/logback_debug.xml /opt/openhab/configurations/logback_debug.xml
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/logback.xml /opt/openhab/configurations/logback.xml
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/openhab.cfg /opt/openhab/configurations/openhab.cfg
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/openhab_default.cfg /opt/openhab/configurations/openhab_default.cfg
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/users.cfg /opt/openhab/configurations/users.cfg
+#
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/items/timmerman.items /opt/openhab/configurations/items/timmerman.items
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/items/timmerman.items_2 /opt/openhab/configurations/items/timmerman.items_2
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/items/README /opt/openhab/configurations/items/README
+#
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/persistence/db4o.persist  /opt/openhab/configurations/persistence/db4o.persist
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/persistence/exec.persist /opt/openhab/configurations/persistence/exec.persist
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/persistence/logging.persist /opt/openhab/configurations/persistence/logging.persist
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/persistence/README /opt/openhab/configurations/persistence/README
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/persistence/rrd4j.persist /opt/openhab/configurations/persistence/rrd4j.persist
+#
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/rules/DoorSwitch.rules /opt/openhab/configurations/rules/DoorSwitch.rules
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/rules/heatControl.rules  /opt/openhab/configurations/rules/heatControl.rules
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/rules/maxMinHumid.rules  /opt/openhab/configurations/rules/maxMinHumid.rules
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/rules/maxMinTemp.rules  /opt/openhab/configurations/rules/maxMinTemp.rules
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/rules/README  /opt/openhab/configurations/rules/README
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/rules/runMotor.rules  /opt/openhab/configurations/rules/runMotor.rules
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/rules/sendMail.rules  /opt/openhab/configurations/rules/sendMail.rules
+#
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/scripts/jsr223_demo.py /opt/openhab/configurations/scripts/jsr223_demo.py
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/scripts/README /opt/openhab/configurations/scripts/README
+#
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/sitemaps/demo.sitemap /opt/openhab/configurations/sitemaps/demo.sitemap
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/sitemaps/timmerman.sitemap /opt/openhab/configurations/sitemaps/timmerman.sitemap
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/sitemaps/README /opt/openhab/configurations/sitemaps/README
+#
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/transform/sv.map /opt/openhab/configurations/transform/sv.map
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/transform/de.map /opt/openhab/configurations/transform/de.map
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/transform/en.map /opt/openhab/configurations/transform/en.map
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/transform/humidex_de.scale  /opt/openhab/configurations/transform/humidex_de.scale
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/transform/humidex_fr.scale /opt/openhab/configurations/transform/humidex_fr.scale
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/transform/humidex.scale /opt/openhab/configurations/transform/humidex.scale
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/transform/README /opt/openhab/configurations/transform/README
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/transform/yahoo_weather_forecast_high.xsl /opt/openhab/configurations/transform/yahoo_weather_forecast_high.xsl
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/transform/yahoo_weather_forecast_low.xsl  /opt/openhab/configurations/transform/yahoo_weather_forecast_low.xsl
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/transform/yahoo_weather_forecast_text.xsl /opt/openhab/configurations/transform/yahoo_weather_forecast_text.xsl
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/transform//yahoo_weather_humidity.xsl /opt/openhab/configurations/transform/yahoo_weather_humidity.xsl
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/transform/yahoo_weather_pressure.xsl /opt/openhab/configurations/transform/yahoo_weather_pressure.xsl
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/transform/yahoo_weather_temperature.xsl /opt/openhab/configurations/transform/yahoo_weather_temperature.xsl
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/transform/yahoo_weather_wind_speed.xsl /opt/openhab/configurations/transform/yahoo_weather_wind_speed.xsl
+#
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/contexts/README /opt/openhab/contexts/README
+#
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/etc/jetty.xml /opt/openhab/etc/jetty.xml
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/etc/keystore /opt/openhab/etc/keystore
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/etc/login.conf /opt/openhab/etc/login.conf
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/etc/quartz.properties /opt/openhab/etc/quartz.properties
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/etc/README /opt/openhab/etc/README
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/etc/webdefault.xml /opt/openhab/etc/webdefault.xml
+#
+# THESE FILES ARE DATA FILES NOT TO BE RESTORED 
+#sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/etc/rrd4j/gLivingroom_Humidity.rrd /opt/openhab/etc/rrd4j/gLivingroom_Humidity.rrd
+#sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/etc/rrd4j/gLivingroom_Temperature.rrd  /opt/openhab/etc/rrd4j/gLivingroom_Temperature.rrd
+#sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/etc/rrd4j/gOutside_Humidity.rrd /opt/openhab/etc/rrd4j/gOutside_Humidity.rrd
+#sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/etc/rrd4j/gOutside_Temperature.rrd /opt/openhab/etc/rrd4j/gOutside_Temperature.rrd
+
+#
+# THE LOGS NEED TO BE HANDLED SEPARATE
+#sudo cp /opt/openhab/logs/
+#
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/server/artifacts.xml /opt/openhab/server/artifacts.xml
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/server/eclipse.ini /opt/openhab/server/eclipse.ini 
+#
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/server/configuration/config.ini /opt/openhab/server/configuration/config.ini
+#
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/webapps/static/index.html /opt/openhab/webapps/static/index.html
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/webapps/static/uuid /opt/openhab/webapps/static/uuid
+sudo cp /home/pi/homeAuto/homeAutomation/Installation1/openhab/webapps/static/version /opt/openhab/webapps/static/version
