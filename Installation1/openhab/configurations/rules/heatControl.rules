@@ -22,16 +22,23 @@ when
     Item gLivingroom_Temperature received update
     or Item gOutside_Temperature received update
 then
-    var OnOffType existingState = Light_gLivingroom_GlobeLamp.state as OnOffType
-    var OnOffType newState = existingState
-    var DecimalType onHysteresis = 1
+    var OnOffType existingState = OFF
+    var OnOffType newState      = OFF
+    var DecimalType onHysteresis  = 1
     var DecimalType offHysteresis = 2
-
+    var DecimalType tempIn  = 0
+    var DecimalType tempOut = 0
+    
     if (gLivingroom_Temperature.state instanceof DecimalType) {
-        var DecimalType tempIn  = gLivingroom_Temperature.state as DecimalType
+
+        if (Light_gLivingroom_GlobeLamp.state instanceof OnOffType) {
+            existingState = Light_gLivingroom_GlobeLamp.state as OnOffType
+            newState = existingState
+        }    
+        tempIn  = gLivingroom_Temperature.state as DecimalType
 
         if (gOutside_Temperature.state instanceof DecimalType) {
-            var DecimalType tempOut = gOutside_Temperature.state as DecimalType
+            tempOut = gOutside_Temperature.state as DecimalType
             // logInfo("DEBUG text", " in:"+tempIn+" tempUt:"+tempOut+" State:"+existingState)
     
             if (existingState == ON)
@@ -48,7 +55,7 @@ then
                 {
                     logInfo("House temp too low" , " temp Outside - temp inside > hysteresis. Turn ON heater.")
                     newState = ON
-                }
+               }
             }
         }
     }

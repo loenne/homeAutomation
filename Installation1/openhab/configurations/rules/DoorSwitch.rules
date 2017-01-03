@@ -1,0 +1,38 @@
+import org.openhab.core.library.types.DecimalType
+import org.openhab.core.library.types.*
+import org.openhab.core.persistance.*
+import org.openhab.model.script.actions.*
+
+//-----------------------------------------------------------------------
+// Rule to turn on a switch connected to a door
+//
+//   Magnetic switch used : MagnetSwitch_gHall_DoorSwitch1On
+//
+//   1. send value of switch to Contact_gHall_DoorSwitch
+//
+//-----------------------------------------------------------------------
+rule "Door Switch turned on"
+when
+    Item MagnetSwitch_gHall_DoorSwitch1On received update
+then
+//    logInfo("Door status update", "Door opened A.")
+    sendCommand(Contact_gHall_DoorSwitch, OPEN)
+//    logInfo("Door status update", "Door opened B.")  
+end
+
+//-----------------------------------------------------------------------
+// Rule to turn off a switch connected to a door.
+//
+//   Magnetic switch used : MagnetSwitch_gHall_DoorSwitch1Off
+//
+//   1. send value of switch to Contact_gHall_DoorSwitch
+//
+//-----------------------------------------------------------------------
+rule "Door Switch turned off"
+when
+    Item MagnetSwitch_gHall_DoorSwitch1Off received update
+then
+//    logInfo("Door status update", "Door closed A.")
+    sendCommand(Contact_gHall_DoorSwitch, CLOSED)
+//    logInfo("Door status update", "Door closed B.")
+end

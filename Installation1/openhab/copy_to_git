@@ -1,7 +1,7 @@
 #   Files backuped to gitHub !!
 #   ----------------------------------
 #
-sudo cp /opt/openhab/copy_all_files /home/pi/homeAuto/homeAutomation/Installation1/openhab/
+sudo cp /opt/openhab/copy_to_git /home/pi/homeAuto/homeAutomation/Installation1/openhab/
 sudo cp /opt/openhab/LICENSE.TXT /home/pi/homeAuto/homeAutomation/Installation1/openhab/
 sudo cp /opt/openhab/README.TXT /home/pi/homeAuto/homeAutomation/Installation1/openhab/
 sudo cp /opt/openhab/start.bat /home/pi/homeAuto/homeAutomation/Installation1/openhab/
@@ -27,6 +27,7 @@ sudo cp /opt/openhab/configurations/persistence/logging.persist /home/pi/homeAut
 sudo cp /opt/openhab/configurations/persistence/README /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/persistence/
 sudo cp /opt/openhab/configurations/persistence/rrd4j.persist /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/persistence/
 #
+sudo cp /opt/openhab/configurations/rules/DoorSwitch.rules /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/rules/
 sudo cp /opt/openhab/configurations/rules/heatControl.rules /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/rules/
 sudo cp /opt/openhab/configurations/rules/maxMinHumid.rules /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/rules/
 sudo cp /opt/openhab/configurations/rules/maxMinTemp.rules /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/rules/
@@ -41,6 +42,7 @@ sudo cp /opt/openhab/configurations/sitemaps/demo.sitemap /home/pi/homeAuto/home
 sudo cp /opt/openhab/configurations/sitemaps/timmerman.sitemap /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/sitemaps/
 sudo cp /opt/openhab/configurations/sitemaps/README /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/sitemaps/
 #
+sudo cp /opt/openhab/configurations/transform/sv.map /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/transform/
 sudo cp /opt/openhab/configurations/transform/de.map /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/transform/
 sudo cp /opt/openhab/configurations/transform/en.map /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/transform/
 sudo cp /opt/openhab/configurations/transform/humidex_de.scale /home/pi/homeAuto/homeAutomation/Installation1/openhab/configurations/transform/
