@@ -1,12 +1,19 @@
+
 Generalinfo\readme.txt
 --------------------------------
 
 Software to be used:
 --------------------
-- raspbian (linux variant) operating system on Raspberry Pi-
-- openhab Application for handling website with sitemap,items,rules
-- telldus
-- pagekite
+- raspbian  : (linux variant) operating system on Raspberry Pi
+- openhab   : Application for handling website with sitemap,items,rules
+              - Bindings for MQTT
+	      - Telldus
+	      - Google mail
+	      - 
+- telldus   : Hardware connector for lamps, buttons.... 
+- pagekite  : Remote connect to pie
+- mosquitto : Message broker implementing MQTT protocol.
+
 
 Hardware to be used:
 --------------------
