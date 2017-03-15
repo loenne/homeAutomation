@@ -38,6 +38,18 @@ then
     sendMail("bjorn.lonne@gmail.com","Motion detection", "Motion detection at car park")
 end
 
+//-----------------------------------------------------------------------
+// Rule to send mail when motion is detected (Motion is detected at car parking).
+//    Item Motion_gHall_Motion_1 state updated to ON
+//    Item Motion_gHall_Motion_1 received command ON
+//-----------------------------------------------------------------------
+rule "Send Motion Mail 2"
+when
+    Item Motion_gHall_Motion_1 received update
+then
+    logInfo("Motion detected", "In Noaks room. State: "+gGuestHouse_MotionDetect1.state)
+    sendMail("bjorn.lonne@gmail.com","Motion detection", "Motion detection in Noaks room")
+end
 
 //-----------------------------------------------------------------------
 // Rule to turn on/off a switch connected to a Heater.

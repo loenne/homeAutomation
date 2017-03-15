@@ -23,6 +23,8 @@ Switch MagnetSwitch_gHall_DoorSwitch1On  "DoorSwitch1On"  {tellstick="DoorSwitch
 Switch MagnetSwitch_gHall_DoorSwitch1Off "DoorSwitch1Off" {tellstick="DoorSwitch1Off:Command"} 
 Contact Contact_gHall_DoorSwitch "Ytterdörr [MAP(sv.map):%s]" (gHall) 
 
+Switch Motion_gHall_Motion1 "Motion_1" (gHall) {tellstick="Motion_1:Command"}
+
 /* Dimmer Hall */
 /* Dimmer Dimmer_gHall_Dimmer1 "Dimmer [%d %%]" (gHall) {tellstick="Dimmer_1:DimmingLevel"} */
 /* Dimmer Dimmer_gHall_Dimmer1 "Dimmer [%d %%]" (gHall) {tellstick="Dimmer_1:DimmingLevel:Dimmable"} */
