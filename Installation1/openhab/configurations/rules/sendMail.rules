@@ -7,22 +7,22 @@ import org.openhab.model.script.actions.*
 //-----------------------------------------------------------------------
 // Rule to Send mail when WaterPump is turned ON.
 //-----------------------------------------------------------------------
-rule "Send On Mail"
-when 
-    Item Light_gTradgarden_WaterPump received command ON
-then 
-    sendMail("bjorn.lonne@gmail.com","Water Pump", "Water Pump is turned ON")
-end
+//rule "Send On Mail"
+//when 
+//    Item Light_gTradgarden_WaterPump received command ON
+//then 
+//    sendMail("bjorn.lonne@gmail.com","Water Pump", "Water Pump is turned ON")
+//end
 
 //-----------------------------------------------------------------------
 // Rule to send mail when waterPump is turned OFF.
 //-----------------------------------------------------------------------
-rule "Send Off Mail"
-when 
-    Item Light_gTradgarden_WaterPump received command OFF
-then
-    sendMail("bjorn.lonne@gmail.com","Water Pump", "Water Pump is turned OFF") 
-end
+//rule "Send Off Mail"
+//when 
+//    Item Light_gTradgarden_WaterPump received command OFF
+//then
+//    sendMail("bjorn.lonne@gmail.com","Water Pump", "Water Pump is turned OFF") 
+//end
 
 
 //-----------------------------------------------------------------------
@@ -30,13 +30,13 @@ end
 //    Item gGuestHouse_MotionDetect1 state updated to ON
 //    Item gGuestHouse_MotionDetect1 received command ON
 //-----------------------------------------------------------------------
-rule "Send Motion Mail"
-when
-    Item gGuestHouse_MotionDetect1 received update
-then
-    logInfo("Motion detected", "At car park. State: "+gGuestHouse_MotionDetect1.state)
-    sendMail("bjorn.lonne@gmail.com","Motion detection", "Motion detection at car park")
-end
+//rule "Send Motion Mail"
+//when
+//    Item gGuestHouse_MotionDetect1 received update
+//then
+//    logInfo("Motion detected", "At car park. State: "+gGuestHouse_MotionDetect1.state)
+//    sendMail("bjorn.lonne@gmail.com","Motion detection", "Motion detection at car park")
+//end
 
 //-----------------------------------------------------------------------
 // Rule to send mail when motion is detected (Motion is detected at car parking).
@@ -47,7 +47,8 @@ rule "Send Motion Mail 2"
 when
     Item Motion_gHall_Motion_1 received update
 then
-    logInfo("Motion detected", "In Noaks room. State: "+gGuestHouse_MotionDetect1.state)
+    logInfo("Motion detected", "In Noaks room. State: "+Motion_gHall_Motion_1.state)
+    logError("Motion detected", "In Noaks r State:"+Motion_gHall_Motion_1.state)
     sendMail("bjorn.lonne@gmail.com","Motion detection", "Motion detection in Noaks room")
 end
 
