@@ -1,0 +1,30 @@
+sitemap timmerman label="Timmermansgatan" {
+
+  Frame label="Rooms" {
+    Group item=gLivingroom     label="Livingroom"     icon="groundfloor"
+    Group item=gMasterBedroom  label="Master bedroom" icon="groundfloor"
+    Group item=gHall           label="Hall"           icon="groundfloor"
+    Group item=gKitchen        label="Kitchen"        icon="groundfloor"
+    Group item=gChanna         label="Channas room"   icon="groundfloor"
+    Group item=gNoak           label="Noaks room"     icon="groundfloor"
+    Group item=gOutside        label="Outside"        icon="groundfloor"
+  }
+  
+  Frame label="Statistics" {
+    Text label="Temperature graph" icon="temperature" {
+      Frame {
+        Frame label="Temperatures" {
+          Chart item=gTemps period=D refresh=300
+        }
+      }
+    }
+    
+    Text label="Humidity graph" icon="climate" {
+      Frame {
+        Frame label="Humidity" {
+          Chart item=gHumids period=D refresh=300
+        }
+      }
+    }
+  }
+}

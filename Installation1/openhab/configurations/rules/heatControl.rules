@@ -18,7 +18,6 @@ import org.openhab.model.script.actions.*
 //-----------------------------------------------------------------------
 rule "House temperature adjuster"
 when
-
     Item gLivingroom_Temperature received update
     or Item gOutside_Temperature received update
 then
@@ -28,19 +27,19 @@ then
     var DecimalType offHysteresis = 2
     var DecimalType tempIn  = 0
     var DecimalType tempOut = 0
-    
+
     if (gLivingroom_Temperature.state instanceof DecimalType) {
 
         if (Light_gLivingroom_GlobeLamp.state instanceof OnOffType) {
             existingState = Light_gLivingroom_GlobeLamp.state as OnOffType
             newState = existingState
-        }    
+        }
         tempIn  = gLivingroom_Temperature.state as DecimalType
 
         if (gOutside_Temperature.state instanceof DecimalType) {
             tempOut = gOutside_Temperature.state as DecimalType
             // logInfo("DEBUG text", " in:"+tempIn+" tempUt:"+tempOut+" State:"+existingState)
-    
+
             if (existingState == ON)
             {
                 if ((tempIn-tempOut) > offHysteresis)
@@ -49,7 +48,7 @@ then
                     newState = OFF
                 }
             }
-            else 
+            else
             {
                 if ((tempOut-tempIn) > onHysteresis)
                 {
@@ -101,4 +100,3 @@ end
 //            }
 //       }
 //end
-

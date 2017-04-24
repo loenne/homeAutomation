@@ -1,17 +1,16 @@
-// import the decimal type as we refer to it in a rule
-import org.openhab.core.library.types.DecimalType
-import org.openhab.core.library.types.*
-import org.openhab.core.persistance.*
-import org.openhab.model.script.actions.*
-
 //-----------------------------------------------------------------------
 // Rule to send mail when motion is detected.
 //    Item Motion_gHall_Motion1 state updated to ON
 //    Item Motion_gHall_Motion1 received command ON
+//
+// Item Motion_gHall_Motion1 received update and
+// logError("Noak", "Motion detected")
+//
 //-----------------------------------------------------------------------
 rule "Send Motion Mail"
 when
-    Item Motion_gHall_Motion1 received update
+    Item Motion_gHall_Motion1 changed from OFF to ON
+//  or  Item Motion_gHall_Motion1 changed from UNDEF to ON
 then
     sendMail("bjorn.lonne@gmail.com","Motion detection", "Motion detection in Noaks room")
 end

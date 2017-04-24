@@ -1,0 +1,50 @@
+Group gHome
+Group gLivingroom     (gHome)
+Group gMasterBedroom  (gHome)
+Group gKitchen        (gHome)
+Group gHall           (gHome)
+Group gOutside        (gHome)
+Group gChanna         (gHome)
+Group gNoak           (gHome)
+Group gTemps          (gHome)
+Group gHumids         (gHome)
+
+/* Livingroom */
+Switch Light_gLivingroom_GlobeLamp    "GlobeLamp"  (gLivingroom)    {tellstick="GlobeLamp:Command"}
+
+/* MasterBedroom */
+/*Switch Light_gMasterBedroom_TableLamp "TableLamp" (gMasterBedroom) {tellstick="TableLamp:Command"} */
+
+/* Hall */
+Switch Light_gHall_WebKamera_1 "WebKamera-1-2" (gHall) {tellstick="WebKamera_1:Command"}
+
+/* DoorSwitch Hall (Two information holding elements not shown in GUI) */
+Switch MagnetSwitch_gHall_DoorSwitch1On  "DoorSwitch1On"  {tellstick="DoorSwitch1On:Command"}
+Switch MagnetSwitch_gHall_DoorSwitch1Off "DoorSwitch1Off" {tellstick="DoorSwitch1Off:Command"}
+Contact Contact_gHall_DoorSwitch "Ytterdörr [MAP(sv.map):%s]" (gHall)
+
+Switch Motion_gHall_Motion1 "Motion_1" (gHall) {tellstick="Motion_1:Command"}
+
+/* Dimmer Hall */
+/* Dimmer Dimmer_gHall_Dimmer1 "Dimmer [%d %%]" (gHall) {tellstick="Dimmer_1:DimmingLevel"} */
+/* Dimmer Dimmer_gHall_Dimmer1 "Dimmer [%d %%]" (gHall) {tellstick="Dimmer_1:DimmingLevel:Dimmable"} */
+/* Dimmer Dimmer_gHall_Dimmer1 "Dimmer [%d %%]" (gHall) {tellstick="Dimmer_1:Command:Dimmable:1"} */
+
+/* Kitchen */
+Switch Switch_gKitchen_WebKamera_1   "WebKamera-3" (gKitchen)    {tellstick="DoubleLamp:Command"}
+
+/* Indoor temp and humidity */
+Number gLivingroom_Temperature                 "Temperatur [%.1f °C]"   <temperature>  (gLivingroom, gTemps)   {tellstick="164:Temperature:Temperature:oregon"}
+Number gLivingroom_Humidity                    "Luftfuktighet [%.1f ]"  <climate>      (gLivingroom, gHumids)  {tellstick="164:Humidity"}
+String gLivingroom_Temperature_Min_Formatted   "Min-Temp [%s]" <temperature>           (gLivingroom)
+String gLivingroom_Temperature_Max_Formatted   "Max-Temp [%s]" <temperature>           (gLivingroom)
+String gLivingroom_Humidity_Min_Formatted      "Min-Humid [%s]" <climate>              (gLivingroom)
+String gLivingroom_Humidity_Max_Formatted      "Max-Humid [%s]" <climate>              (gLivingroom)
+
+/* Outside temp and humidity */
+Number gOutside_Humidity                       "HumidUtomhus [%.1f ]"   <climate>      (gOutside, gHumids)   {tellstick="135:Humidity"}
+Number gOutside_Temperature                    "TempUtomhus [%.1f °C]" <temperature>   (gOutside, gTemps)    {tellstick="135:Temperature"}
+String gOutside_Temperature_Min_Formatted      "Outside-MinTemp [%s]" <temperature>   (gOutside)
+String gOutside_Temperature_Max_Formatted      "Outside-MaxTemp [%s]" <temperature>   (gOutside)
+String gOutside_Humidity_Min_Formatted         "Outside-MinHumid [%s]" <climate>      (gOutside)
+String gOutside_Humidity_Max_Formatted         "Outside-MaxHumid [%s]" <climate>      (gOutside)

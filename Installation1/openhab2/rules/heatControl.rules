@@ -1,0 +1,72 @@
+//import org.openhab.model.script.actions.*
+
+//-----------------------------------------------------------------------
+// Rule to turn on/off a switch connected to a Heater.
+//
+//   Inside temperature used  : gLivingroom_Temperature
+//   Outside temperature used : gOutside_Temperature
+//
+//   1. Fetch value of heater switch
+//   2. if existingState is ON 
+//      Check if tempIn > tempOut and if so, turn OFF heater.
+//   3. if existingState is OFF:
+//      Check if tempIn is < tempOut and if so, turn ON heater.
+//
+//-----------------------------------------------------------------------
+rule "House temperature adjuster"
+when
+    Item gLivingroom_Temperature received update
+    or Item gOutside_Temperature received update
+then
+    var OnOffType existingState = OFF
+    var OnOffType newState      = OFF
+//    var DecimalType onHysteresis  = 1
+//    var DecimalType offHysteresis = 2
+//    var DecimalType tempIn  = 0
+//    var DecimalType tempOut = 0
+
+    if (gLivingroom_Temperature.state instanceof DecimalType) {
+
+//        if (Light_gLivingroom_GlobeLamp.state instanceof OnOffType) {
+//            existingState = Light_gLivingroom_GlobeLamp.state as OnOffType
+//            newState = existingState
+//        }
+//        tempIn  = gLivingroom_Temperature.state as DecimalType
+
+        if (gOutside_Temperature.state instanceof DecimalType) {
+//            tempOut = gOutside_Temperature.state as DecimalType
+//            logError("DEBUG text", " in:"+tempIn+" tempUt:"+tempOut+" State:"+existingState)
+
+//            if (existingState == ON)
+//            {
+//                if ((tempIn-tempOut) > offHysteresis)
+//                {
+//                    logInfo("House temp too high", " temp Inside - temp Outside > hysteresis. Turn OFF heater.")
+//                    newState = OFF
+//                }
+//            }
+//            else
+//            {
+//                if ((tempOut-tempIn) > onHysteresis)
+//                {
+//                    logInfo("House temp too low" , " temp Outside - temp inside > hysteresis. Turn ON heater.")
+//                    newState = ON
+//                }
+//            }
+        }
+    }
+//
+//    if (newState != existingState)
+//    {
+//        sendCommand(Light_gLivingroom_GlobeLamp, newState)
+//
+//        if (newState == ON)
+//        {
+//            sendMail("bjorn.lonne@gmail.com","Livingroom temperature warning", "Temperature inside too low. Turning ON Heater. in:"+tempIn+" out"+tempOut)
+//        }
+//        else
+//        {
+//            sendMail("bjorn.lonne@gmail.com","Livingroom temperature warning", "Temperature inside too high. Turning OFF Heater. in:"+tempIn+" out"+tempOut)
+//        }
+//    }
+end

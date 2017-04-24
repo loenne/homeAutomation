@@ -1,8 +1,6 @@
-import org.openhab.core.library.types.DecimalType
-import org.openhab.core.library.types.*
-import org.openhab.core.persistance.*
-import org.openhab.model.script.actions.*
-
+//    Item MagnetSwitch_gHall_DoorSwitch1On changed from CLOSED to OPEN
+//    or Item MagnetSwitch_gHall_DoorSwitch1On changed from NULL to OPEN
+//
 //-----------------------------------------------------------------------
 // Rule to turn on a switch connected to a door
 //
