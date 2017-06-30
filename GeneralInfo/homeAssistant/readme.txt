@@ -16,10 +16,12 @@ customization
 material design icons
 Add a www folder to the home assistant folder.
   add pictures there that you want to use.
+
+Add camera support
   
 Ip tool
 -------
-fing app for android
+fing : app for android
 
 Commands to stop/start and check the openhab service
 ----------------------------------------------------
@@ -33,24 +35,12 @@ Installer Scripts -https://github.com/home-assistant/has...
 HA Getting Started Guide - https://home-assistant.io/getting-sta...
 Encryption Info - http://www.bruhautomation.com/single-...
 
-Twitter - https://twitter.com/bruhautomation
-Facebook - https://www.facebook.com/bruhautomation
-Instagram - https://www.instagram.com/bruhautomation
-
-http://geni.us/bruhkit
-
 LIFX - http://geni.us/r0dC
 LIFX + - http://geni.us/U2Mkheg
 Aeotec Minimote - http://geni.us/9Vco
 NodeMCU ESP8266 Chip - http://geni.us/6i9vl
 3D Printer - http://geni.us/by2Su1
 
-My Website - http://www.bruhautomation.com
 Home Assistant - https://home-assistant.io/
 HA Forum - https://community.home-assistant.io/
-HA Chatroom - https://gitter.im/balloob/home-assistant
-HA GitHub - https://github.com/home-assistant
-Category
-Science & Technology
-License
-Standard YouTube License
+
