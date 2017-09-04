@@ -36,6 +36,7 @@ String gBasement_Humidity_Min_Formatted      "Min. Humid [%s]" <climate>        
 String gBasement_Humidity_Max_Formatted      "Max. Humid [%s]" <climate>              (gBasement)
 
 Switch Light_gHuset_HouseFloorLamp           "Golvlampa"                <moon>        (gHuset)         {tellstick="HouseFloorLamp:Command"}
+Switch gHuset_WebCamera                      "Web Kamera"                             (gHuset)         {tellstick="WebCamera:Command"}
 Switch gHuset_Heater1                        "Element_1"                <climate>     (gHuset)         {tellstick="HouseHeater1:Command"}
 
 Number gHuset_Barnrum_Humidity               "FuktBarnrum [%.1f ]"   <climate>     (gHuset, gHumids)   {tellstick="247:Humidity"}
