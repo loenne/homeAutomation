@@ -1,0 +1,36 @@
+#################
+## Customize devices
+#################
+##
+##     group.all_devices:
+##       hidden: false
+##       friendly_name: 'Devices'
+##     group.all_lights:
+##       hidden: false
+##       friendly_name: 'Lights'
+##     group.all_switches:
+##       hidden: false
+##       friendly_name: 'Switches'
+# Add an entry for each entity that you want to overwrite.
+#      thermostat.family_room:
+#        entity_picture: https://example.com/images/nest.jpg
+#        friendly_name: Nest
+    switch.webcamera_1:
+      friendly_name: Webcamera Hall/Bedroom
+      icon: mdi:camera-switch
+#      entity_picture: /local/toaster.jpg
+    switch.webcamera_2:
+      friendly_name: Webcamera Kitchen
+      icon: mdi:camera-switch
+    switch.DoorSwitch1Off:
+      hidden: true
+    switch.DoorSwitch1On:
+      hidden: true
+    sensor.255_temperature:
+      hidden: true
+#      switch.rfxtrx_switch:
+#        assumed_state: false
+# Customize all entities in a domain
+#      customize_domain:
+#        light:
+#          icon: mdi:home

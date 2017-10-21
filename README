@@ -1,0 +1,48 @@
+# homeAutomation
+# --------------
+
+# Repo storage
+# ------------
+The repo is stored at gitHub:
+> git clone https://github.com/loenne/homeAutomation.git
+
+# Files used during home automation 
+# ---------------------------------
+The repo will contain files from :
+ - Raspberry pi:
+   - Installation 4 using Hass.io, homeAssistant (town)
+   - Installation 3 using Hassbian, homeAssistant (town)
+   - Installation 2 using Hassbian, openhub (summerhouse)
+   - Installation 1 using Hassbian, openhub (town)
+
+File structure:
+
+GeneralInfo
+    debian
+    github.txt
+    homeAssistant
+    openhab
+    readme.txt
+    telldus
+
+Installation1
+    debian
+    hardware
+    openhab
+    openhab2
+    pagekite
+    telldus
+
+Installation2
+    debian
+    hardware
+    openhab
+    pagekite
+    telldus
+
+Installation3
+
+Installation4
+
+README
+

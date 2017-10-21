@@ -1,8 +1,7 @@
-Installation1 has the following hardware
----------------------------------------------
+Installation3 to be equiped with the following hardware
+-------------------------------------------------------
 
 - Rasperry pi vers 3
-  -linux (debian)
 
 Hardware for tellstick connections
 ----------------------------------

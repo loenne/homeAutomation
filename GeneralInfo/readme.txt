@@ -4,15 +4,17 @@ Generalinfo\readme.txt
 
 Software to be used:
 --------------------
-- raspbian  : (linux variant) operating system on Raspberry Pi
-- openhab   : Application for handling website with sitemap,items,rules
-              - Bindings for MQTT
-	      - Telldus
-	      - Google mail
-	      - 
-- telldus   : Hardware connector for lamps, buttons.... 
-- pagekite  : Remote connect to pie
-- mosquitto : Message broker implementing MQTT protocol.
+- raspbian      : (linux variant) operating system on Raspberry Pi
+- openhab       : Application for handling website with sitemap,items,rules
+                  - Bindings for MQTT
+	          - Telldus
+	          - Google mail
+- homeAssistant : Application for handling website for sitemap, items, rules...
+- duckdns       : 
+- letsencrypt   : 
+- telldus       : Hardware connector for lamps, buttons.... 
+- pagekite      : Remote connect to pie
+- mosquitto     : Message broker implementing MQTT protocol.
 
 
 Hardware to be used:
@@ -27,6 +29,6 @@ Hardware to be used:
 
 The following users are created to make homeAutomation work
 -----------------------------------------------------------
-At openHab :  mail:2*fleksnes
-At IFTTT : mail:2*fleksnes
+At openHab : mail:2*fleksnes
+At IFTTT   : mail:2*fleksnes
 

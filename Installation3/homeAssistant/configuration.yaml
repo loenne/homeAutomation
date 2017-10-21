@@ -1,0 +1,142 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Timmerman
+  # Location required to calculate the time the sun rises and sets
+  latitude: 59.3333
+  longitude: 18.05
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 11
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Stockholm
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+# Uncomment this if you are using SSL or running in Docker etc
+# base_url: example.duckdns.org:8123
+  api_password: la8pv       
+  ssl_certificate: '/etc/letsencrypt/live/timmerman.duckdns.org/fullchain.pem'
+  ssl_key: '/etc/letsencrypt/live/timmerman.duckdns.org/privkey.pem'
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+# discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+# conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Tellstick component
+tellstick:
+  signal_repetitions: 3
+
+# Weather Prediction
+sensor:
+#  - platform: cpuspeed
+  - platform: tellstick
+#    135: Tempterature Vardagsrum
+#    temperature_scale: "°C"
+#    datatype_mask: 1
+#
+  - platform: yr
+#  - platform: systemmonitor
+#    resources:
+#    type: disk_use_percent
+#    arg: /home
+#    type: memory_free
+
+switch:
+  - platform: tellstick
+#    friendly_name: "webkamera 2"
+# webcamera2: "Web camera 2"
+# Kontakt1 63106778
+
+# Text to speech
+# tts:
+#   platform: google
+
+#### Views to be moved to groups.yaml
+group:
+  default_view:
+    view: yes
+    name: Home
+    icon: mdi:home
+    entities:
+      - group.kitchen
+      - group.masterbedroom
+      - group.hall
+      - group.livingroom
+      - group.environment
+  kitchen_view:
+    view: yes
+    name: Kitchen
+    entities:
+      - group.kitchen
+  masterbedroom_view:
+    view: yes
+    name: Master bedroom
+    entities:
+      - group.masterbedroom
+  hall_view:
+    view: yes
+    name: Hall
+    entities:
+      - group.hall
+  livingroom_view:
+    view: yes
+    name: Livingroom
+    entities:
+      - group.livingroom
+#### Groups to be moved to groups.yaml
+  hall:
+    name: Hall
+    entities:
+      - switch.WebCamera_1
+      - switch.Motion_1
+      - light.Dimmer_1
+      - sensor.164_humidity
+      - sensor.164_temperature
+  kitchen:
+    name: Kitchen
+    entities:
+      - switch.WebCamera_2
+  livingroom:
+    name: Livingroom
+    entities:
+      - switch.alfaa
+      - switch.cornerlamp
+      - switch.doublelamp
+      - switch.globelamp
+      - sensor.135_humidity
+      - sensor.135_temperature
+  masterbedroom:
+    name: Master bedroom
+    entities:
+      - switch.webcamera_1
+  environment:
+    name: Environment
+    entities:
+      - sun.sun
+      - sensor.yr_symbol
+# group: !include groups.yaml
+# switch: !include switches.yaml

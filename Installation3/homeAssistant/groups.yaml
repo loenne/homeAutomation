@@ -1,0 +1,37 @@
+    group:
+      default_view:
+        view: yes
+        icon: mdi:home
+        entities:
+          - group.kitchen
+          - group.masterbedroom
+          - group.hall
+          - group.livingroom
+      kitchen:
+        view: yes
+        name: Kitchen
+        icon: mdi:home
+        entities:
+          - switch.webcamera_2
+      masterbedroom:
+        view: yes
+        name: Master bedroom
+        icon: mdi:home
+        entities:
+          - switch.webcamera_1
+      hall:
+        view: yes
+        name: Hall
+        icon: mdi:home
+        entities:
+          - switch.webcamera_1
+          - switch.motion_1
+      livingroom:
+        view: yes
+        name: Livingroom
+        icon: mdi:home
+        entities:
+          - switch.alfaa
+          - switch.cornerlamp
+          - switch.doublelamp
+          - switch.globelamp
