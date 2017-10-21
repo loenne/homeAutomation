@@ -1,0 +1,11 @@
+switch:
+  - platform: tellstick
+    webcamera2: "Web camera 2"
+    friendly_name: "webkamera 2"
+
+# Kontakt1 63106778
+#
+#  - platform: tellstick
+#    switches:
+#      kontakt1:
+#        friendly_name: "KONTAKT1"
