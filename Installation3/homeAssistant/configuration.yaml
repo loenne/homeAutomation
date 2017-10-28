@@ -48,7 +48,7 @@ sun:
 
 # Tellstick component
 tellstick:
-  signal_repetitions: 3
+  signal_repetitions: 4
 
 # Weather Prediction
 sensor:
@@ -75,68 +75,7 @@ switch:
 # tts:
 #   platform: google
 
-#### Views to be moved to groups.yaml
-group:
-  default_view:
-    view: yes
-    name: Home
-    icon: mdi:home
-    entities:
-      - group.kitchen
-      - group.masterbedroom
-      - group.hall
-      - group.livingroom
-      - group.environment
-  kitchen_view:
-    view: yes
-    name: Kitchen
-    entities:
-      - group.kitchen
-  masterbedroom_view:
-    view: yes
-    name: Master bedroom
-    entities:
-      - group.masterbedroom
-  hall_view:
-    view: yes
-    name: Hall
-    entities:
-      - group.hall
-  livingroom_view:
-    view: yes
-    name: Livingroom
-    entities:
-      - group.livingroom
-#### Groups to be moved to groups.yaml
-  hall:
-    name: Hall
-    entities:
-      - switch.WebCamera_1
-      - switch.Motion_1
-      - light.Dimmer_1
-      - sensor.164_humidity
-      - sensor.164_temperature
-  kitchen:
-    name: Kitchen
-    entities:
-      - switch.WebCamera_2
-  livingroom:
-    name: Livingroom
-    entities:
-      - switch.alfaa
-      - switch.cornerlamp
-      - switch.doublelamp
-      - switch.globelamp
-      - sensor.135_humidity
-      - sensor.135_temperature
-  masterbedroom:
-    name: Master bedroom
-    entities:
-      - switch.webcamera_1
-  environment:
-    name: Environment
-    entities:
-      - sun.sun
-      - sensor.yr_symbol
-# group: !include groups.yaml
+#### Includes
+automation: !include automation.yaml
+group: !include groups.yaml
 # switch: !include switches.yaml

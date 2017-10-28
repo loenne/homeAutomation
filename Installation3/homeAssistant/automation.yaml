@@ -1,0 +1,41 @@
+  - alias: Turn on the lights when the sun sets
+    initial_state: True
+    hide_entity: False
+    trigger:
+      platform: sun
+      event: sunset
+    action:
+      service: light.turn_on
+      entity_id: group.lampgrp
+
+  - alias: Turn off the lights when the sun rises
+    initial_state: True
+    hide_entity: False
+    trigger:
+      platform: sun
+      event: sunrise
+    action:
+      service: light.turn_off
+      entity_id: group.lampgrp
+
+  - alias: Turn on the lights when motion detected
+    initial_state: True
+    hide_entity: False
+    trigger:
+      platform: state
+      entity_id: switch.Motion_1
+      to: 'on'
+    action:
+      service: light.turn_on
+      entity_id: group.lampgrp
+
+  - alias: Turn off the lights when motion stopped
+    initial_state: True
+    hide_entity: False
+    trigger:
+      platform: state
+      entity_id: switch.Motion_1
+      to: 'off'
+    action:
+      service: light.turn_off
+      entity_id: group.lampgrp

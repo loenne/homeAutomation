@@ -22,13 +22,25 @@
     switch.webcamera_2:
       friendly_name: Webcamera Kitchen
       icon: mdi:camera-switch
-    switch.DoorSwitch1Off:
-      hidden: true
-    switch.DoorSwitch1On:
-      hidden: true
+#    switch.DoorSwitch1Off:
+#      hidden: true
+#    switch.DoorSwitch1On:
+#      hidden: true
+    switch.Motion_1:
+       friendly_name: Motion detected in Hall 
+    light.Dimmer_1:
+       friendly_name: Lamp 
+    sensor.164_humidity:
+       friendly_name: Humidity 
+    sensor.164_temperature:
+       friendly_name: Temperature 
     sensor.255_temperature:
       hidden: true
-#      switch.rfxtrx_switch:
+    sensor.135_humidity:
+       friendly_name: Humidity 
+    sensor.135_temperature:
+       friendly_name: Temperature 
+ #      switch.rfxtrx_switch:
 #        assumed_state: false
 # Customize all entities in a domain
 #      customize_domain:
