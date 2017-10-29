@@ -25,6 +25,10 @@
       platform: state
       entity_id: switch.Motion_1
       to: 'on'
+    condition:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
     action:
       service: light.turn_on
       entity_id: group.lampgrp
@@ -36,6 +40,10 @@
       platform: state
       entity_id: switch.Motion_1
       to: 'off'
+    condition:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
     action:
       service: light.turn_off
       entity_id: group.lampgrp
