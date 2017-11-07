@@ -37,7 +37,9 @@ String gBasement_Humidity_Max_Formatted      "Max. Humid [%s]" <climate>        
 
 Switch Light_gHuset_HouseFloorLamp           "Golvlampa"                <moon>        (gHuset)         {tellstick="HouseFloorLamp:Command"}
 Switch gHuset_WebCamera                      "Web Kamera"                             (gHuset)         {tellstick="WebCamera:Command"}
-Switch gHuset_Heater1                        "Element_1"                <climate>     (gHuset)         {tellstick="HouseHeater1:Command"}
+Switch gHuset_Heater1                        "Element Vardagsrum"       <climate>     (gHuset)         {tellstick="HouseHeater1:Command"}
+Switch gHuset_Heater2                        "Element Sovrum"           <climate>     (gHuset)         {tellstick="HeaterMBedroom:Command"}
+Switch gHuset_Heater3                        "Element Barnkammare"      <climate>     (gHuset)         {tellstick="HeaterCBedroom:Command"}
 
 Number gHuset_Barnrum_Humidity               "FuktBarnrum [%.1f ]"   <climate>     (gHuset, gHumids)   {tellstick="247:Humidity"}
 Number gHuset_Barnrum_Temperature            "TempBarnrum [%.1f °C]" <temperature> (gHuset, gTemps)    {tellstick="247:Temperature"}
@@ -56,4 +58,3 @@ String gChanna_Temperature_Min_Formatted     "Min. Temp [%s]" <temperature>     
 String gChanna_Temperature_Max_Formatted     "Max. Temp [%s]" <temperature>           (gChanna)
 String gChanna_Humidity_Min_Formatted        "Min. Humid [%s]" <climate>              (gChanna)
 String gChanna_Humidity_Max_Formatted        "Max. Humid [%s]" <climate>              (gChanna)
-
