@@ -6,15 +6,23 @@ import org.openhab.model.script.actions.*
 //-----------------------------------------------------------------------
 // Rule to turn on/off a switch connected to a Heater.
 //
-//   Inside temperature used  : gSovHuset_Temperature
-//   Outside temperature used : gTradgarden_Temperature
-//   Heater switch            : Light_gSovHuset_SleepHouseFloorLamp
+// Rule is depending on:
+//   Inside temperature  : gSovHuset_Temperature
+//   Outside temperature : gTradgarden_Temperature
 //
+// Rule is changing:
+//   Heater switch       : Light_gSovHuset_SleepHouseFloorLamp
+//
+// Structure:
 //   1. Fetch value of heater switch
 //   2. if existingState is ON 
 //      Check if tempIn > tempOut and if so, turn OFF heater.
-//   3. if existingState is OFF:
+//   3. if existingState is OFF
 //      Check if tempIn is < tempOut and if so, turn ON heater.
+//
+// There is a hysteresis of:
+//  1 when turning on heater
+//  2 when turning off the heater
 //
 //-----------------------------------------------------------------------
 rule "SleepHouse temperature adjuster"
@@ -73,9 +81,14 @@ when
 end
 
 //-----------------------------------------------------------------------
-// Rule to turn on/off a switch connected to a Heater.
+// Rule to turn on/off a switch connected to a Heater in livingroom.
 //
+// Rule is depending on:
 //   Inside temperature used  : gHuset_Temperature
+//   Fixed temperature        : 8 degrees
+//   Fixed temperature        : 10 degrees
+//
+// Rule is changing:
 //   Heater switch            : gHuset_Heater1
 //
 //   1. Check if temp is below MINTEMP and heater is OFF.
@@ -90,13 +103,51 @@ then
     if ((gHuset_Temperature.state < 8) && (gHuset_Heater1.state == OFF)) {
         logInfo("House Temperature changed", "temperature below 10. Turn on heater 1. Temp: "+gHuset_Temperature.state)
         sendCommand(gHuset_Heater1, ON)
+        sendCommand(gHuset_Heater1, ON)
         sendMail("bjorn.lonne@gmail.com","House Temperature warning", "Temperature in house below 10 degrees. Turning ON Heater 1. Temp:"+gHuset_Temperature.state)
     }
     else {
         if ((gHuset_Temperature.state > 10) && (gHuset_Heater1.state == ON)) {
             logInfo("House Temperature changed", "temperature above 15 and gHusetHeater1 is ON. Temperature: "+gHuset_Temperature.state)
             sendCommand(gHuset_Heater1, OFF)
+            sendCommand(gHuset_Heater1, OFF)
             sendMail("bjorn.lonne@gmail.com","House Temperature warning", "Temperature in house above 15 degrees. Turning OFF Heater 1. Temp:"+gHuset_Temperature.state)
+        }
+    }
+end
+
+//-----------------------------------------------------------------------
+// Rule to turn on/off a switch connected to a Heater in childrens bedroom.
+//
+// Rule is depending on:
+//   Inside temperature used  : gHuset_Barnrum_Temperature            
+//   Fixed temperature        : 8 degrees
+//   Fixed temperature        : 10 degrees
+//
+// Rule is changing:
+//   Heater switch            : gHuset_Heater3
+//
+//   1. Check if temp is below MINTEMP and heater is OFF.
+//      Turn heater ON.
+//   2. Or check if temp is above MAXTEMP and heater is ON.
+//      Turn heater OFF.
+//-----------------------------------------------------------------------
+rule "House temperature trigger"
+when
+    Item gHuset_Barnrum_Temperature changed
+then
+    if ((gHuset_Barnrum_Temperature.state < 8) && (gHuset_Heater3.state == OFF)) {
+        logInfo("House Temperature changed", "temperature below 10. Turn on heater 3. Temp: "+gHuset_Barnrum_Temperature.state)
+        sendCommand(gHuset_Heater3, ON)
+        sendCommand(gHuset_Heater3, ON)
+        sendMail("bjorn.lonne@gmail.com","House Temperature warning", "Temperature in house below 10 degrees. Turning ON Heater 3. Temp:"+gHuset_Barnrum_Temperature.state)
+    }
+    else {
+        if ((gHuset_Barnrum_Temperature.state > 10) && (gHuset_Heater3.state == ON)) {
+            logInfo("House Temperature changed", "temperature above 15 and gHusetHeater1 is ON. Temperature: "+gHuset_Barnrum_Temperature.state)
+            sendCommand(gHuset_Heater3, OFF)
+            sendCommand(gHuset_Heater3, OFF)
+            sendMail("bjorn.lonne@gmail.com","House Temperature warning", "Temperature in house above 15 degrees. Turning OFF Heater 3. Temp:"+gHuset_Barnrum_Temperature.state)
         }
     }
 end
