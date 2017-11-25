@@ -44,6 +44,9 @@ Switch gHuset_Heater3                        "Element Barnkammare"      <climate
 Number gHuset_Barnrum_Humidity               "FuktBarnrum [%.1f ]"   <climate>     (gHuset, gHumids)   {tellstick="247:Humidity"}
 Number gHuset_Barnrum_Temperature            "TempBarnrum [%.1f °C]" <temperature> (gHuset, gTemps)    {tellstick="247:Temperature"}
 
+Number gHuset_MasterBedroomHumidity          "FuktSovrum [%.1f ]"   <climate>     (gHuset, gHumids)   {tellstick="11:Humidity"}
+Number gHuset_MasterBedroomTemperature       "TempSovrum [%.1f °C]" <temperature> (gHuset, gTemps)    {tellstick="11:Temperature"}
+
 Number gHuset_Humidity                       "FuktVardagsrum [%.1f ]"   <climate>     (gHuset, gHumids)   {tellstick="135:Humidity"}
 Number gHuset_Temperature                    "TempVardagsrum [%.1f °C]" <temperature> (gHuset, gTemps)    {tellstick="135:Temperature"}
 
