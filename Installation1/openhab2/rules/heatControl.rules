@@ -18,8 +18,8 @@ when
     Item gLivingroom_Temperature received update
     or Item gOutside_Temperature received update
 then
-    var OnOffType existingState = OFF
-    var OnOffType newState      = OFF
+//    var OnOffType existingState = OFF
+//    var OnOffType newState      = OFF
 //    var DecimalType onHysteresis  = 1
 //    var DecimalType offHysteresis = 2
 //    var DecimalType tempIn  = 0
