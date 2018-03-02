@@ -48,8 +48,11 @@ when
             {
                 if ((tempIn-tempOut) > offHysteresis)
                 {
-                    logInfo("SleepHouse temp too high", " temp Inside - temp Outside > hysteresis. Turn OFF heater.")
-                    newState = OFF
+                    if (tempIn > 0)
+                    {
+                        logInfo("SleepHouse temp too high", " temp Inside - temp Outside > hysteresis. Turn OFF heater.")
+                        newState = OFF
+                    }
                 }
             }
             else 
