@@ -27,6 +27,7 @@ String gTradgarden_Humidity_Min_Formatted    "Min. Humid [%s]" <climate>        
 String gTradgarden_Humidity_Max_Formatted    "Max. Humid [%s]" <climate>              (gTradgarden)
 
 Switch gGuestHouse_MotionDetect1             "Motion detect"                          (gGuestHouse)        {tellstick="MotionDetect1:Command"}
+Switch gGuestHouse_BatteryCharger            "Battery Charger"                        (gGuestHouse)        {tellstick="BatteriLaddare:Command"}
 
 Number gBasement_Humidity                    "FuktKällare [%.1f ]"     <climate>      (gBasement, gHumids) {tellstick="167:Humidity"}
 Number gBasement_Temperature                 "TempKällare [%.1f °C]"   <temperature>  (gBasement, gTemps)  {tellstick="167:Temperature"}
