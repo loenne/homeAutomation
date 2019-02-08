@@ -1,6 +1,6 @@
 homeassistant:
   # Name of the location where Home Assistant is running
-  name: Timmerman
+  name: Homeman
   # Location required to calculate the time the sun rises and sets
   latitude: 59.3333
   longitude: 18.05
@@ -10,6 +10,7 @@ homeassistant:
   unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Stockholm
+  # Customization file
   customize: !include customize.yaml
 
 # Show links to resources in log and frontend
@@ -21,122 +22,109 @@ frontend:
 # Enables configuration UI
 config:
 
+#panel_iframe:
+#  configurator:
+#    title: Configurator
+#    icon: mdi:wrench
+#    url: https://homeman.duckdns.org:3218
+
 http:
-# Uncomment this if you are using SSL or running in Docker etc
-# base_url: example.duckdns.org:8123
-  api_password: la8pv       
-  ssl_certificate: '/etc/letsencrypt/live/timmerman.duckdns.org/fullchain.pem'
-  ssl_key: '/etc/letsencrypt/live/timmerman.duckdns.org/privkey.pem'
+  # Secrets are defined in the file secrets.yaml
+  #api_password: !secret http_password
+  #api_password: la8pv
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # This is know done in the gui setup of DuckDNS
+  base_url: https://homeman.duckdns.org:8123
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  # ssl_certificate: '/etc/letsencrypt/live/homeman.duckdns.org/fullchain.pem'
+  # ssl_key: '/etc/letsencrypt/live/homeman.duckdns.org/privkey.pem'
 
 # Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
 
 # Discover some devices automatically
-# discovery:
+discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
-# conversation:
+conversation:
 
-# Enables support for tracking state changes over time.
+# Enables support for tracking state changes over time
 history:
+
+# Enables InfluxDB
+# influxdb:
+#  host: 192.168.1.51
+#  host: 127.0.0.1
 
 # View all events in a logbook
 logbook:
 
+# Tellstick component
+tellstick:
+    host: core-tellstick
+    port: [50800, 50801]
+    signal_repetitions: 4
+
+# Enables a map showing the location of tracked devices
+map:
+
 # Track the sun
 sun:
 
-# Tellstick component
-tellstick:
-  signal_repetitions: 3
+#mqtt:
+#  broker: 192.168.1.41
+#  port: 1883
+#  client_id: home-assistant-1
+#  username: mosquitto
+#  password: la8pvla8pv
+#  discovery: true
+#  discovery_prefix: homeassistant
 
-# Weather Prediction
+# Weather prediction
 sensor:
-#  - platform: cpuspeed
-  - platform: tellstick
-#    135: Tempterature Vardagsrum
-#    temperature_scale: "°C"
-#    datatype_mask: 1
-#
   - platform: yr
-#  - platform: systemmonitor
-#    resources:
-#    type: disk_use_percent
-#    arg: /home
-#    type: memory_free
-
-switch:
+    name: Väder
+    forecast: 24
+    monitored_conditions:
+      - temperature
+      - symbol
+      - precipitation
+      - windSpeed
+      - pressure
+      - windDirection
+      - humidity
+      - fog
+      - cloudiness
+      - lowClouds
+      - mediumClouds
+      - highClouds
+      - dewpointTemperature
+#  - platform: cpuspeed
+#  - platform: mqtt
+#    state_topic: "home/soilhumid"
+#    name: "SoilHumid"
+#    unit_of_measurement: "%"
+#    value_template: '{{ value_json.SoilHumid | round(1) }}'
   - platform: tellstick
-#    friendly_name: "webkamera 2"
-# webcamera2: "Web camera 2"
-# Kontakt1 63106778
 
 # Text to speech
-# tts:
-#   platform: google
+#tts:
+#  - platform: google
 
-#### Views to be moved to groups.yaml
-group:
-  default_view:
-    view: yes
-    name: Home
-    icon: mdi:home
-    entities:
-      - group.kitchen
-      - group.masterbedroom
-      - group.hall
-      - group.livingroom
-      - group.environment
-  kitchen_view:
-    view: yes
-    name: Kitchen
-    entities:
-      - group.kitchen
-  masterbedroom_view:
-    view: yes
-    name: Master bedroom
-    entities:
-      - group.masterbedroom
-  hall_view:
-    view: yes
-    name: Hall
-    entities:
-      - group.hall
-  livingroom_view:
-    view: yes
-    name: Livingroom
-    entities:
-      - group.livingroom
-#### Groups to be moved to groups.yaml
-  hall:
-    name: Hall
-    entities:
-      - switch.WebCamera_1
-      - switch.Motion_1
-      - light.Dimmer_1
-      - sensor.164_humidity
-      - sensor.164_temperature
-  kitchen:
-    name: Kitchen
-    entities:
-      - switch.WebCamera_2
-  livingroom:
-    name: Livingroom
-    entities:
-      - switch.alfaa
-      - switch.cornerlamp
-      - switch.doublelamp
-      - switch.globelamp
-      - sensor.135_humidity
-      - sensor.135_temperature
-  masterbedroom:
-    name: Master bedroom
-    entities:
-      - switch.webcamera_1
-  environment:
-    name: Environment
-    entities:
-      - sun.sun
-      - sensor.yr_symbol
-# group: !include groups.yaml
-# switch: !include switches.yaml
+# Cloud
+cloud:
+
+#switch:
+#  - platform: tellstick
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+switch: !include switches.yaml
