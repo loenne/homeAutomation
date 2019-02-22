@@ -9,8 +9,8 @@
 //-----------------------------------------------------------------------
 rule "Send Motion Mail"
 when
-    Item Motion_gHall_Motion1 changed from OFF to ON
-//  or  Item Motion_gHall_Motion1 changed from UNDEF to ON
+    Item Switch_gHall_Motion1 changed from OFF to ON
+//  or  Item Switch_gHall_Motion1 changed from UNDEF to ON
 then
-    sendMail("bjorn.lonne@gmail.com","Motion detection", "Motion detection in Noaks room")
+    sendMail("bjorn.lonne@gmail.com","Motion detection", "Motion detection in Hall")
 end

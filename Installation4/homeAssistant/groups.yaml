@@ -1,37 +1,141 @@
-    group:
-      default_view:
-        view: yes
-        icon: mdi:home
-        entities:
-          - group.kitchen
-          - group.masterbedroom
-          - group.hall
-          - group.livingroom
-      kitchen:
-        view: yes
-        name: Kitchen
-        icon: mdi:home
-        entities:
-          - switch.webcamera_2
-      masterbedroom:
-        view: yes
-        name: Master bedroom
-        icon: mdi:home
-        entities:
-          - switch.webcamera_1
-      hall:
-        view: yes
-        name: Hall
-        icon: mdi:home
-        entities:
-          - switch.webcamera_1
-          - switch.motion_1
-      livingroom:
-        view: yes
-        name: Livingroom
-        icon: mdi:home
-        entities:
-          - switch.alfaa
-          - switch.cornerlamp
-          - switch.doublelamp
-          - switch.globelamp
+# VIEWS
+#
+  default_view:
+    view: yes
+    name: Home
+    icon: mdi:home
+    entities:
+      - group.webcam
+      - group.kitchen
+      - group.masterbedroom
+      - group.hall
+      - group.library
+      - group.livingroom
+      - group.environment
+      - group.powerconsumption
+  webcam_view:
+    view: yes
+    name: webCam
+    entities:
+      - group.webcam
+  kitchen_view:
+    view: yes
+    name: Kitchen
+    entities:
+      - group.kitchen
+  masterbedroom_view:
+    view: yes
+    name: Master bedroom
+    entities:
+      - group.masterbedroom
+  hall_view:
+    view: yes
+    name: Hall
+    entities:
+      - group.hall
+  library_view:
+    view: yes
+    name: Library
+    entities:
+      - group.library
+  livingroom_view:
+    view: yes
+    name: Livingroom
+    entities:
+      - group.livingroom
+  environment_view:
+    view: yes
+    name: Environment
+    entities:
+      - group.environment
+  powerconsumtion_view:
+    view: yes
+    name: Power Consumption
+    entities:
+      - group.powerconsumption
+
+# GROUPS
+#
+  hall:
+    name: Hall
+    entities:
+      - switch.webcamera_1
+      - switch.motion_1
+      - sensor.164_humidity
+      - sensor.164_temperature
+      - switch.doorswitch2
+#      - binary_sensor.door
+  webcam:
+    name: WebCam
+    entities:
+       - switch.webcamera_1
+       - switch.webcamera_2
+       - switch.webcamera_3
+  kitchen:
+    name: Kitchen
+    entities:
+      - switch.webcamera_2
+      - switch.windowlamp
+  livingroom:
+    name: Livingroom
+    entities:
+#      - switch.alfaa
+#      - switch.doublelamp
+      - switch.livlamp_1
+      - switch.livlamp_2
+      - switch.livlamp_3
+      - sensor.135_humidity
+      - sensor.135_temperature
+      - media_player.vardagsrum
+  library:
+    name: Library
+    entities:
+      - switch.webcamera_3
+      - switch.globelamp
+      - light.dimmer_1
+  masterbedroom:
+    name: Master bedroom
+    entities:
+      - switch.alarmlamp
+      - sensor.71_humidity
+      - sensor.71_temperature
+  environment:
+    name: Environment
+    entities:
+      - sun.sun
+      - sensor.vader_temperature
+      - sensor.vader_symbol
+      - sensor.vader_humidity
+      - sensor.vader_precipitation
+      - sensor.vader_wind_speed
+      - sensor.vader_pressure
+      - sensor.vader_wind_direction
+      - sensor.vader_fog
+      - sensor.vader_cloudiness
+      - sensor.vader_low_clouds
+      - sensor.vader_medium_clouds
+      - sensor.vader_high_clouds
+      - sensor.vader_dewpoint_temperature
+  powerconsumption:
+    name: Power consumption
+    entities:
+      - sensor.battery_remaining
+      - sensor.energy_momentary
+      - sensor.energy_totalmonth
+      - sensor.soilhumid
+  lampgrp1:
+    name: Lampgroup1
+    entities:
+      - switch.alarmlamp
+  lampgrp2:
+    name: Lampgroup2
+    entities:
+      - light.dimmer_1
+  lampgrp3:
+    name: Lampgroup3
+    entities:
+      - switch.windowlamp
+  sensorgrp:
+    name: sensorgrp
+    entities:
+      - binary_sensor.door

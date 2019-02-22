@@ -1,29 +1,42 @@
 Group gHome
 Group gLivingroom     (gHome)
 Group gLibrary        (gHome)
-Group gKitchen        (gHome)
 Group gHall           (gHome)
-Group gOutside        (gHome)
+Group gKitchen        (gHome)
 Group gOffice         (gHome)
 Group gMasterBedroom  (gHome)
+Group gOutside        (gHome)
 Group gTemps          (gHome)
 Group gHumids         (gHome)
+Group gConfig         (gHome)
+
+/*  Automation */
+Switch Switch_gRules_IgnoreRules    "IgnoreRules"  (gConfig)
 
 /* Livingroom */
-Switch Light_gLivingroom_GlobeLamp    "GlobeLamp"  (gLivingroom)    {tellstick="GlobeLamp:Command"}
+Switch Switch_gLivingroom_LivLamp_1    "Spotlights"    (gLivingroom)    {tellstick="livlamp_1:Command"}
+Switch Switch_gLivingroom_LivLamp_2    "Spotlights 2"  (gLivingroom)    {tellstick="livlamp_2:Command"}
+Switch Switch_gLivingroom_LivLamp_3    "Grön Lampa"    (gLivingroom)    {tellstick="livlamp_3:Command"}
+/* Livingroom temp and humidity */
+Number gLivingroom_Temperature                 "Temperatur [%.1f °C]"   <temperature>  (gLivingroom, gTemps)   {tellstick="164:Temperature:Temperature:oregon"}
+Number gLivingroom_Humidity                    "Luftfuktighet [%.1f ]"  <climate>      (gLivingroom, gHumids)  {tellstick="164:Humidity"}
+String gLivingroom_Temperature_Min_Formatted   "Min-Temp [%s]" <temperature>           (gLivingroom)
+String gLivingroom_Temperature_Max_Formatted   "Max-Temp [%s]" <temperature>           (gLivingroom)
+String gLivingroom_Humidity_Min_Formatted      "Min-Humid [%s]" <climate>              (gLivingroom)
+String gLivingroom_Humidity_Max_Formatted      "Max-Humid [%s]" <climate>              (gLivingroom)
 
 /* Library */
-Switch Light_gLibrary_WebCameraBibl "WebKamera-2" (gLibrary) {tellstick="WebCameraBibl:Command"}
+Switch Switch_gLibrary_GlobeLamp "GlobeLamp" (gLibrary) {tellstick="globelamp:Command"}
 
 /* Hall */
-Switch Light_gHall_WebKamera_1 "WebKamera-1" (gHall) {tellstick="WebKamera_1:Command"}
+Switch Switch_gHall_WebKamera_1 "WebKamera-1" (gHall) {tellstick="webcamera_1:Command"}
 
 /* DoorSwitch Hall (Two information holding elements not shown in GUI) */
-Switch MagnetSwitch_gHall_DoorSwitch1On  "DoorSwitch1On"  {tellstick="DoorSwitch1On:Command"}
-Switch MagnetSwitch_gHall_DoorSwitch1Off "DoorSwitch1Off" {tellstick="DoorSwitch1Off:Command"}
+Switch MagnetSwitch_gHall_DoorSwitch1On  "DoorSwitch1On"  {tellstick="doorswitch1on:Command"}
+Switch MagnetSwitch_gHall_DoorSwitch1Off "DoorSwitch1Off" {tellstick="doorswitch1off:Command"}
 Contact Contact_gHall_DoorSwitch "Ytterdörr [MAP(sv.map):%s]" (gHall)
 
-Switch Motion_gHall_Motion1 "Motion_1" (gHall) {tellstick="Motion_1:Command"}
+Switch Switch_gHall_Motion1 "Motion_1" (gHall) {tellstick="motion_1:Command"}
 
 /* Dimmer Hall */
 /* Dimmer Dimmer_gHall_Dimmer1 "Dimmer [%d %%]" (gHall) {tellstick="Dimmer_1:DimmingLevel"} */
@@ -31,7 +44,14 @@ Switch Motion_gHall_Motion1 "Motion_1" (gHall) {tellstick="Motion_1:Command"}
 /* Dimmer Dimmer_gHall_Dimmer1 "Dimmer [%d %%]" (gHall) {tellstick="Dimmer_1:Command:Dimmable:1"} */
 
 /* Kitchen */
-Switch Switch_gKitchen_WebKamera_1   "WebKamera-3" (gKitchen)    {tellstick="DoubleLamp:Command"}
+Switch Switch_gKitchen_WebKamera_2 "WebKamera-2" (gKitchen)    {tellstick="webcamera_2:Command"}
+Switch Switch_gKitchen_WindowLamp  "WindowLamp"  (gKitchen)    {tellstick="windowlamp:Command"}
+
+/* Office */
+
+/* MasterBedroom */
+Switch Switch_gMasterBedroom_AlarmLamp "AlarmLamp"      (gMasterBedroom) {tellstick="alarmlamp:Command"}
+Switch Switch_gMasterBedroom_WebKamera_3 "WebKamera-3"  (gMasterBedroom) {tellstick="webcamera_3:Command"}
 
 /* Indoor temp and humidity */
 Number gLivingroom_Temperature                 "Temperatur [%.1f °C]"   <temperature>  (gLivingroom, gTemps)   {tellstick="164:Temperature:Temperature:oregon"}

@@ -8,6 +8,7 @@ sitemap timmerman label="Timmermansgatan" {
     Group item=gOffice         label="Office"         icon="groundfloor"
     Group item=gMasterBedroom  label="MasterBedroom"  icon="groundfloor"
     Group item=gOutside        label="Outside"        icon="groundfloor"
+    Group item=gConfig         label="Config"         icon="groundFloor" 
   }
   
   Frame label="Statistics" {
