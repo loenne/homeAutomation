@@ -1,0 +1,134 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Homeman
+  # Location required to calculate the time the sun rises and sets
+  latitude: 59.3333
+  longitude: 18.05
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 11
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Stockholm
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+#panel_iframe:
+#  configurator:
+#    title: Configurator
+#    icon: mdi:wrench
+#    url: https://homeman.duckdns.org:3218
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  #api_password: !secret http_password
+  #api_password: la8pv
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # This is know done in the gui setup of DuckDNS
+  base_url: https://homeman.duckdns.org:8123
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  # ssl_certificate: '/etc/letsencrypt/live/homeman.duckdns.org/fullchain.pem'
+  # ssl_key: '/etc/letsencrypt/live/homeman.duckdns.org/privkey.pem'
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+tradfri:
+  host: 192.168.1.25
+  allow_tradfri_groups: true
+
+# Enables InfluxDB
+# influxdb:
+#  host: 192.168.1.51
+#  host: 127.0.0.1
+
+# View all events in a logbook
+logbook:
+
+# Tellstick component
+tellstick:
+    host: core-tellstick
+    port: [50800, 50801]
+    signal_repetitions: 4
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+#mqtt:
+#  broker: 192.168.1.41
+#  port: 1883
+#  client_id: home-assistant-1
+#  username: mosquitto
+#  password: la8pvla8pv
+#  discovery: true
+#  discovery_prefix: homeassistant
+
+# Weather prediction
+sensor:
+  - platform: yr
+    name: Väder
+    forecast: 24
+    monitored_conditions:
+      - temperature
+      - symbol
+      - precipitation
+      - windSpeed
+      - pressure
+      - windDirection
+      - humidity
+      - fog
+      - cloudiness
+      - lowClouds
+      - mediumClouds
+      - highClouds
+      - dewpointTemperature
+#  - platform: cpuspeed
+#  - platform: mqtt
+#    state_topic: "home/soilhumid"
+#    name: "SoilHumid"
+#    unit_of_measurement: "%"
+#    value_template: '{{ value_json.SoilHumid | round(1) }}'
+  - platform: tellstick
+
+# Text to speech
+#tts:
+#  - platform: google
+
+# Cloud
+cloud:
+
+#switch:
+#  - platform: tellstick
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+switch: !include switches.yaml

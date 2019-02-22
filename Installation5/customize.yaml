@@ -1,0 +1,47 @@
+switch.motion_1:
+  friendly_name: Motion detected in Hall
+light.dimmer_1:
+  friendly_name: Lamp
+sensor.164_humidity:
+  friendly_name: Humidity
+sensor.164_temperature:
+  friendly_name: Temperature
+sensor.255_temperature:
+  hidden: true
+sensor.135_humidity:
+  friendly_name: Humidity
+sensor.135_temperature:
+  friendly_name: Temperature
+sensor.71_humidity:
+  friendly_name: Humidity
+sensor.71_temperature:
+  friendly_name: Temperature
+sensor.cpu_speed:
+  friendly_name: Pi speed
+switch.webcamera_1:
+  friendly_name: Webcamera Hall
+  icon: mdi:camera-switch
+switch.webcamera_2:
+  friendly_name: Webcamera Kitchen
+  icon: mdi:camera-switch
+switch.webcamera_3:
+  friendly_name: Webcamera MasterBedroom
+  icon: mdi:camera-switch
+switch.alarmlamp:
+  friendly_name: Alarm Lamp
+switch.windowlamp:
+  friendly_name: Window lamp
+switch.livlamp_1:
+  friendly_name: Spotlights
+switch.livlamp_2:
+  friendly_name: Spotlight 2
+switch.livlamp_3:
+  friendly_name: Green Lamp
+media_player.chromecastaudio8022:
+  friendly_name: CCast kok
+media_player.vardagsrum:
+  friendly_name: CCast vardagsrum
+sensor.vader_symbol:
+  friendly_name: Weather
+switch.tradfri_outlet:
+  friendly_name: Ikea_lampe

@@ -11,13 +11,13 @@ then
     var SimpleDateFormat df = new SimpleDateFormat( "HH:mm" )
 
     if (gLivingroom_Humidity.state instanceof DecimalType) {
-        Min = (gLivingroom_Humidity.minimumSince(now.toLocalDate.toDateTimeAtStartOfDay, "rrd4j").state as DecimalType)
-        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " % (" + df.format(gLivingroom_Humidity.minimumSince(now.toLocalDate.toDateTimeAtStartOfDay, "rrd4j").timestamp) + ")"
+        Min = (gLivingroom_Humidity.minimumSince(now.withTimeAtStartOfDay, "rrd4j").state as DecimalType)
+        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " % (" + df.format(gLivingroom_Humidity.minimumSince(now.withTimeAtStartOfDay, "rrd4j").timestamp) + ")"
         postUpdate(gLivingroom_Humidity_Min_Formatted, tmp)
 
-        Max = gLivingroom_Humidity.maximumSince(now.toLocalDate.toDateTimeAtStartOfDay, "rrd4j").state as DecimalType
+        Max = gLivingroom_Humidity.maximumSince(now.withTimeAtStartOfDay, "rrd4j").state as DecimalType
         df = new SimpleDateFormat( "HH:mm" )
-        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " % (" + df.format(gLivingroom_Humidity.maximumSince(now.toLocalDate.toDateTimeAtStartOfDay, "rrd4j").timestamp) + ")"
+        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " % (" + df.format(gLivingroom_Humidity.maximumSince(now.withTimeAtStartOfDay, "rrd4j").timestamp) + ")"
         postUpdate(gLivingroom_Humidity_Max_Formatted, tmp)
     }
 end
@@ -32,13 +32,13 @@ then
     var SimpleDateFormat df = new SimpleDateFormat( "HH:mm" )
 
     if (gOutdoor_Humidity.state instanceof DecimalType) {
-        Min = (gOutdoor_Humidity.minimumSince(now.toLocalDate.toDateTimeAtStartOfDay, "rrd4j").state as DecimalType)
-        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " % (" + df.format(gOutdoor_Humidity.minimumSince(now.toLocalDate.toDateTimeAtStartOfDay, "rrd4j").timestamp) + ")"
+        Min = (gOutdoor_Humidity.minimumSince(now.withTimeAtStartOfDay, "rrd4j").state as DecimalType)
+        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " % (" + df.format(gOutdoor_Humidity.minimumSince(now.withTimeAtStartOfDay, "rrd4j").timestamp) + ")"
         postUpdate(gOutdoor_Humidity_Min_Formatted, tmp)
 
-        Max = gOutdoor_Humidity.maximumSince(now.toLocalDate.toDateTimeAtStartOfDay, "rrd4j").state as DecimalType
+        Max = gOutdoor_Humidity.maximumSince(now.withTimeAtStartOfDay, "rrd4j").state as DecimalType
         df = new SimpleDateFormat( "HH:mm" )
-        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " % (" + df.format(gOutdoor_Humidity.maximumSince(now.toLocalDate.toDateTimeAtStartOfDay, "rrd4j").timestamp) + ")"
+        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " % (" + df.format(gOutdoor_Humidity.maximumSince(now.withTimeAtStartOfDay, "rrd4j").timestamp) + ")"
         postUpdate(gOutdoor_Humidity_Max_Formatted, tmp)
     }
 end

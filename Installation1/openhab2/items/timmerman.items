@@ -1,22 +1,22 @@
 Group gHome
 Group gLivingroom     (gHome)
-Group gMasterBedroom  (gHome)
+Group gLibrary        (gHome)
 Group gKitchen        (gHome)
 Group gHall           (gHome)
 Group gOutside        (gHome)
-Group gChanna         (gHome)
-Group gNoak           (gHome)
+Group gOffice         (gHome)
+Group gMasterBedroom  (gHome)
 Group gTemps          (gHome)
 Group gHumids         (gHome)
 
 /* Livingroom */
 Switch Light_gLivingroom_GlobeLamp    "GlobeLamp"  (gLivingroom)    {tellstick="GlobeLamp:Command"}
 
-/* MasterBedroom */
-/*Switch Light_gMasterBedroom_TableLamp "TableLamp" (gMasterBedroom) {tellstick="TableLamp:Command"} */
+/* Library */
+Switch Light_gLibrary_WebCameraBibl "WebKamera-2" (gLibrary) {tellstick="WebCameraBibl:Command"}
 
 /* Hall */
-Switch Light_gHall_WebKamera_1 "WebKamera-1-2" (gHall) {tellstick="WebKamera_1:Command"}
+Switch Light_gHall_WebKamera_1 "WebKamera-1" (gHall) {tellstick="WebKamera_1:Command"}
 
 /* DoorSwitch Hall (Two information holding elements not shown in GUI) */
 Switch MagnetSwitch_gHall_DoorSwitch1On  "DoorSwitch1On"  {tellstick="DoorSwitch1On:Command"}

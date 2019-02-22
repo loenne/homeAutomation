@@ -1,0 +1,11 @@
+#!/usr/bin/expect
+        spawn scp  root@192.168.1.48:/config/*.yaml ./
+        set pass "ulrikeN2026"
+        expect {
+        password: {send "$pass\r"; exp_continue}
+                  }
+        spawn scp  root@192.168.1.48:/config/tellduslive.conf ./telldus/
+        set pass "ulrikeN2026"
+        expect {
+        password: {send "$pass\r"; exp_continue}
+                  }

@@ -2,11 +2,11 @@ sitemap timmerman label="Timmermansgatan" {
 
   Frame label="Rooms" {
     Group item=gLivingroom     label="Livingroom"     icon="groundfloor"
-    Group item=gMasterBedroom  label="Master bedroom" icon="groundfloor"
+    Group item=gLibrary        label="Library"        icon="groundfloor"
     Group item=gHall           label="Hall"           icon="groundfloor"
     Group item=gKitchen        label="Kitchen"        icon="groundfloor"
-    Group item=gChanna         label="Channas room"   icon="groundfloor"
-    Group item=gNoak           label="Noaks room"     icon="groundfloor"
+    Group item=gOffice         label="Office"         icon="groundfloor"
+    Group item=gMasterBedroom  label="MasterBedroom"  icon="groundfloor"
     Group item=gOutside        label="Outside"        icon="groundfloor"
   }
   

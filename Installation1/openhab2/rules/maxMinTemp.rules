@@ -11,13 +11,13 @@ then
     var SimpleDateFormat df = new SimpleDateFormat( "HH:mm" )
 
     if (gLivingroom_Temperature.state instanceof DecimalType) {
-        Min = (gLivingroom_Temperature.minimumSince(now.toLocalDate.toDateTimeAtStartOfDay, "rrd4j").state as DecimalType)
-        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " °C (" + df.format(gLivingroom_Temperature.minimumSince(now.toLocalDate.toDateTimeAtStartOfDay, "rrd4j").timestamp) + ")"
+        Min = (gLivingroom_Temperature.minimumSince(now.withTimeAtStartOfDay, "rrd4j").state as DecimalType)
+        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " °C (" + df.format(gLivingroom_Temperature.minimumSince(now.withTimeAtStartOfDay, "rrd4j").timestamp) + ")"
         postUpdate(gLivingroom_Temperature_Min_Formatted, tmp)
 
-        Max = gLivingroom_Temperature.maximumSince(now.toLocalDate.toDateTimeAtStartOfDay, "rrd4j").state as DecimalType
+        Max = gLivingroom_Temperature.maximumSince(now.withTimeAtStartOfDay, "rrd4j").state as DecimalType
         df = new SimpleDateFormat( "HH:mm" )
-        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " °C (" + df.format(gLivingroom_Temperature.maximumSince(now.toLocalDate.toDateTimeAtStartOfDay, "rrd4j").timestamp) + ")"
+        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " °C (" + df.format(gLivingroom_Temperature.maximumSince(now.withTimeAtStartOfDay, "rrd4j").timestamp) + ")"
         postUpdate(gLivingroom_Temperature_Max_Formatted, tmp)
     }
 end
@@ -32,13 +32,13 @@ then
     var SimpleDateFormat df = new SimpleDateFormat( "HH:mm" )
 
     if (gOutdoor_Temperature.state instanceof DecimalType) {
-        Min = (gOutdoor_Temperature.minimumSince(now.toLocalDate.toDateTimeAtStartOfDay(), "rrd4j").state as DecimalType)
-        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " °C (" + df.format(gOutdoor_Temperature.minimumSince(now.toLocalDate.toDateTimeAtStartOfDay, "rrd4j").timestamp) + ")"
+        Min = (gOutdoor_Temperature.minimumSince(now.withTimeAtStartOfDay, "rrd4j").state as DecimalType)
+        tmp = (Math::round(Min.floatValue*10.0)/10.0) + " °C (" + df.format(gOutdoor_Temperature.minimumSince(now.withTimeAtStartOfDay, "rrd4j").timestamp) + ")"
         postUpdate(gOutdoor_Temperature_Min_Formatted, tmp)
 
-        Max = gOutdoor_Temperature.maximumSince(now.toLocalDateTimeAtStartOfDay, "rrd4j").state as DecimalType
+        Max = gOutdoor_Temperature.maximumSince(now.withTimeAtStartOfDay, "rrd4j").state as DecimalType
         df = new SimpleDateFormat( "HH:mm" )
-        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " °C (" + df.format(gOutdoor_Temperature.maximumSince(now.toLocalDate.toDateTimeAtStartOfDay, "rrd4j").timestamp) + ")"
+        tmp = (Math::round(Max.floatValue*10.0)/10.0) + " °C (" + df.format(gOutdoor_Temperature.maximumSince(now.withTimeAtStartOfDay, "rrd4j").timestamp) + ")"
         postUpdate(gOutdoor_Temperature_Max_Formatted, tmp)
     }
 end

@@ -1,0 +1,8 @@
+  - platform: tellstick
+#
+# Kontakt1 63106778
+#
+#  - platform: tellstick
+#    switches:
+#      kontakt1:
+#        friendly_name: "KONTAKT1"

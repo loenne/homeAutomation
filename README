@@ -10,10 +10,11 @@ The repo is stored at gitHub:
 # ---------------------------------
 The repo will contain files from :
  - Raspberry pi:
-   - Installation 4 using Hass.io, homeAssistant (town)
-   - Installation 3 using Hassbian, homeAssistant (town)
-   - Installation 2 using Hassbian, openhub (summerhouse)
-   - Installation 1 using Hassbian, openhub (town)
+   - Installation 5 ACTIVE  Using Hass.io, homeAssistant (town) New installation after previous (4) crashed.
+   - Installation 4 CRASHED Using Hass.io, homeAssistant (town) Something has crashed summer 2018.... 
+   - Installation 3 UNKNOWN Using Hassbian, homeAssistant (town)
+   - Installation 2 ACTIVE  Using Hassbian, openhab (summerhouse)
+   - Installation 1 ACTIVE  Using Hassbian, openhab2 (town)
 
 File structure:
 
@@ -36,13 +37,40 @@ Installation1
 Installation2
     debian
     hardware
+    logs
     openhab
     pagekite
     telldus
 
 Installation3
+    debian
+    duckdns
+    hardware
+    homeAssistant
+    letsencrypt
+    mosquitto
+    openhab
+    pagekite
+    telldus
 
 Installation4
+    homeAssistant
+      configuration.yaml
+      customize.yaml
+      groups.yaml
+      home-assistant.log
+      switches.yaml
+    telldus
 
+Installation5
+    homeAssistant
+    homeAssistant
+      configuration.yaml
+      customize.yaml
+      groups.yaml
+      home-assistant.log
+      switches.yaml
+    telldus
+    
 README
 

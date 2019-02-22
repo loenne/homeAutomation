@@ -1,0 +1,177 @@
+2018-11-30 19:46:14 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-11-30 19:46:52 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-11-30 20:46:04 ERROR (MainThread) [homeassistant.components.updater] Got unexpected response: None
+2018-11-30 21:55:15 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-11-30 21:55:15 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-11-30 22:12:52 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-11-30 22:13:15 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-11-30 22:21:02 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-11-30 22:21:02 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-12-01 00:00:01 WARNING (MainThread) [homeassistant.helpers.condition] Error during and-condition: 'int' object is not callable
+2018-12-01 00:28:34 ERROR (MainThread) [homeassistant.core] Error doing job: Exception in callback <bound method SendfileStreamWriter._sendfile_cb of <aiohttp.web_fileresponse.SendfileStreamWriter object at 0x70351710>>
+Traceback (most recent call last):
+  File "uvloop/cbhandles.pyx", line 64, in uvloop.loop.Handle._run
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_fileresponse.py", line 37, in _sendfile_cb
+    loop.remove_writer(out_fd)
+  File "uvloop/loop.pyx", line 2270, in uvloop.loop.Loop.remove_writer
+  File "uvloop/loop.pyx", line 785, in uvloop.loop.Loop._remove_writer
+  File "uvloop/loop.pyx", line 690, in uvloop.loop.Loop._ensure_fd_no_transport
+RuntimeError: File descriptor 22 is used by transport <TCPTransport closed=False reading=True 0x703429e0>
+2018-12-01 01:08:12 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-12-01 02:26:53 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-12-01 03:53:42 WARNING (Thread-2) [pychromecast.socket_client] Heartbeat timeout, resetting connection
+2018-12-01 03:53:43 ERROR (Thread-2) [pychromecast.socket_client] Failed to connect, retrying in 5.0s
+2018-12-01 04:10:56 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-12-01 05:04:45 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-12-01 05:07:18 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-12-01 15:55:57 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-12-01 16:05:39 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-12-01 18:25:18 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-12-01 20:46:04 ERROR (MainThread) [homeassistant.components.updater] Got unexpected response: None
+2018-12-01 21:39:06 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-12-02 00:00:01 WARNING (MainThread) [homeassistant.helpers.condition] Error during and-condition: 'int' object is not callable
+2018-12-02 00:21:42 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-12-02 02:13:32 ERROR (MainThread) [homeassistant.core] Error doing job: Exception in callback <bound method SendfileStreamWriter._sendfile_cb of <aiohttp.web_fileresponse.SendfileStreamWriter object at 0x6fd7a3f0>>
+Traceback (most recent call last):
+  File "uvloop/cbhandles.pyx", line 64, in uvloop.loop.Handle._run
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_fileresponse.py", line 37, in _sendfile_cb
+    loop.remove_writer(out_fd)
+  File "uvloop/loop.pyx", line 2270, in uvloop.loop.Loop.remove_writer
+  File "uvloop/loop.pyx", line 785, in uvloop.loop.Loop._remove_writer
+  File "uvloop/loop.pyx", line 690, in uvloop.loop.Loop._ensure_fd_no_transport
+RuntimeError: File descriptor 25 is used by transport <TCPTransport closed=False reading=True 0x70342600>
+2018-12-02 04:26:56 WARNING (Thread-2) [pychromecast.socket_client] Heartbeat timeout, resetting connection
+2018-12-02 04:27:03 ERROR (Thread-2) [pychromecast.socket_client] Failed to connect, retrying in 5.0s
+2018-12-02 13:17:36 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-12-02 13:17:38 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-12-02 13:17:38 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-12-02 13:17:38 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-12-02 13:17:39 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-12-02 13:17:39 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-12-02 18:58:32 ERROR (MainThread) [aiohttp.server] Error handling request
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/aiohttp/web_protocol.py", line 242, in data_received
+    messages, upgraded, tail = self._request_parser.feed_data(data)
+  File "aiohttp/_http_parser.pyx", line 523, in aiohttp._http_parser.HttpParser.feed_data
+aiohttp.http_exceptions.BadStatusLine: invalid HTTP method
+2018-12-02 20:46:04 ERROR (MainThread) [homeassistant.components.updater] Got unexpected response: None
