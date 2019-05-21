@@ -13,6 +13,8 @@ Group gConfig         (gHome)
 /*  Automation */
 Switch Switch_gRules_IgnoreRules    "IgnoreRules"  (gConfig)
 
+Switch gRules_IgnoreRules    "IgnoreRules"  (gMasterBedroom)    {}
+
 /* Livingroom */
 Switch Switch_gLivingroom_LivLamp_1    "Spotlights"    (gLivingroom)    {tellstick="livlamp_1:Command"}
 Switch Switch_gLivingroom_LivLamp_2    "Spotlights 2"  (gLivingroom)    {tellstick="livlamp_2:Command"}

@@ -9,6 +9,7 @@ Group gNoak         "Noaks rum"     <hall>      (gHome)
 Group gTemps                                    (gHome)
 Group gHumids
 
+Switch gSovHuset_ignoreRules                 "Regler på/av"                           (gSovHuset)          {}
 Switch Light_gSovHuset_SleepHouseFloorLamp   "Golvlampa"                              (gSovHuset)          {tellstick="SleepHouseFloorLamp:Command"}
 Number gSovHuset_Humidity                    "FuktSovhus [%.1f ]"     <climate>       (gSovHuset, gHumids) {tellstick="151:Humidity"}
 Number gSovHuset_Temperature                 "TempSovhus [%.1f °C]"   <temperature>   (gSovHuset, gTemps)  {tellstick="151:Temperature"}

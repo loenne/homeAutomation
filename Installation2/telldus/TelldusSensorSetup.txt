@@ -1,0 +1,22 @@
+Telldus sensor setup
+----------------------------
+
+The following sensors are configured at Installation2
+
+Code   Id       Place
+----------------------------
+---4   135      Vardagsrum
+--34   151      Sovhuset
+-2-4   167      Källare
+-234   183      Utomhus
+1--4   199      Channas rum
+1-34   215      Noaks rum
+12-4   231      Attefall
+1234   247      Barnrummet
+
+Other sensors:
+----------------------------
+
+Id      Place
+----------------------------
+11      Sovrummet
